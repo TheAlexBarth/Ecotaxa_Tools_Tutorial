@@ -13,8 +13,10 @@ website:
       - section: 'Importing Data'
         contents:
           - href: import_UVP_ecopart_import.qmd
-      - contents:    
+      - section: "Made By:"
+        contents:
         - href: https://thealexbarth.github.io
+          text: 'Alex Barth'
 format:
   html:
     theme: cosmo
