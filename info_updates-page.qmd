@@ -1,0 +1,7 @@
+---
+title: "Updates"
+---
+
+# Updates:
+
+-   4/6/22: Created the quarto page to introduce the package and a short tutorial

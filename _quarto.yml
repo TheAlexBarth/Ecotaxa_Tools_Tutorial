@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Ecotaxa_Tools_Tutorial"
+  sidebar:
+    style: 'docked'
+    contents:
+      - section: 'Main'
+        contents:
+          - href: index.qmd
+          - href: info_updates-page.qmd
+      - section: 'Importing Data'
+        contents:
+          - href: import_UVP_ecopart_import.qmd
+      - contents:    
+        - href: https://thealexbarth.github.io
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+editor: visual
+

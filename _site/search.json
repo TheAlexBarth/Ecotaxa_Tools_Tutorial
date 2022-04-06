@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Ecotaxa Tools Guide",
+    "section": "",
+    "text": "The project is under current development so check back frequently. You can read the updates tab for new information here"
+  },
+  {
+    "objectID": "info_updates-page.html",
+    "href": "info_updates-page.html",
+    "title": "Updates",
+    "section": "",
+    "text": "4/6/22: Created the quarto page to introduce the package and a short tutorial"
+  }
+]
