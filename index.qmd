@@ -5,4 +5,4 @@ title: "Ecotaxa Tools Guide"
 EcotaxaTools is an R package I developed to easily manage and analyze output from the [ecotaxa website](https://ecotaxa.obs-vlfr.fr/). Check out the github page for EcotaxaTools [here](https://github.com/TheAlexBarth/EcotaxaTools).
 
 The project is under current development so check back frequently.
-You can read the updates tab for new information [here](./Updates)
+You can read the updates tab for new information [here](./info_updates-page.html)
