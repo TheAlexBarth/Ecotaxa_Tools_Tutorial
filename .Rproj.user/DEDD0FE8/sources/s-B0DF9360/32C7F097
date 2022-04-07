@@ -1,0 +1,31 @@
+{
+    "id": "32C7F097",
+    "path": "~/GitClones/Ecotaxa_Tools_Tutorial/import_UVP_ecopart_import.qmd",
+    "project_path": "import_UVP_ecopart_import.qmd",
+    "type": "quarto_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1649288513358.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "2431:2049.60009765625",
+        "cursorPosition": "64,29",
+        "scrollLine": "39"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1649304564,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1649304564291,
+    "read_only": false,
+    "read_only_alternatives": []
+}
