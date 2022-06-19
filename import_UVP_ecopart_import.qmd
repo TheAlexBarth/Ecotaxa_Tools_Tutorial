@@ -38,7 +38,7 @@ ecopart_list <- ecopart_import(path) #load files
 
 ### Understanding the ecopart file list
 
-If you are new to working with lists, it's worth \[reading\](https://adv-r.hadley.nz/names-values.html#list-references) a bit about them. While lists can be clunky, it allows for looping over large amounts of data stored in memory.
+If you are new to working with lists, it's worth [reading](https://adv-r.hadley.nz/names-values.html#list-references) a bit about them. While lists can be clunky, it allows for looping over large amounts of data stored in memory.
 
 Below, I'll briefly show how to interact with some of the data stored in the ecopart list
 
@@ -56,7 +56,7 @@ names(ecopart_list[[3]])
 
 ```
 
-Each zooplankton tibble has data from all vignettes collected from an individual uvp cast. You can access these in multiple ways with either the `$` operator or `[[` operators. These are very similar to the export data from standard Ecotaxa .tsv files. You can read more about those \[here\](./main_tsv-file-info.html). The key difference from these files are that some header files are slightly different. Namely, there are no `object_` columns. To account for this, much of the other importing functions for other instruments format to match the UVP.
+Each zooplankton tibble has data from all vignettes collected from an individual uvp cast. You can access these in multiple ways with either the `$` operator or `[[` operators. These are very similar to the export data from standard Ecotaxa .tsv files. You can read more about those [here](./main_tsv-file-info.html). The key difference from these files are that some header files are slightly different. Namely, there are no `object_` columns. To account for this, much of the other importing functions for other instruments format to match the UVP.
 
 ```{r}
 ecopart_list$zoo_files[[3]]

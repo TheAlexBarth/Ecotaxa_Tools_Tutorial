@@ -1,0 +1,8 @@
+---
+title: .tsv Export Files
+---
+
+### How to think about .tsv export files
+
+From ecotaxa, you export files of zooplankton data (large images). These come as .tsv files.
+In these files, there are a lot of data that can be a little overwhelming. However, all these columsn host valuable data.

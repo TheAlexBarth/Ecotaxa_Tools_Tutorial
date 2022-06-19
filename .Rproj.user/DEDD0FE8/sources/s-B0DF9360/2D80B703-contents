@@ -1,8 +1,0 @@
----
-title: "Updates"
----
-
-## 4/6/22
-
--   Created the quarto page to introduce the package and a short tutorial
--   Much of the original package was not tidy friendly - I am giving it a soft overhaul to make it accessible for tidyverse oriented people
