@@ -1,0 +1,5 @@
+dir()
+library(EcotaxaTools)
+path <- "~/UVP/EX_BV_Data" #path to ecopart export directory
+ecopart_list <- ecopart_import(path) #load files
+devtools::install_github('TheAlexBarth/EcotaxaTools')

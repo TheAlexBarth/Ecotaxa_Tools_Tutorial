@@ -4,20 +4,34 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "export_UVP_ecopart-export.html#accessing-data-on-ecopart",
+    "href": "export_UVP_ecopart-export.html#accessing-data-on-ecopart",
+    "title": "Exporting Ecopart Data",
+    "section": "Accessing data on Ecopart:",
+    "text": "Accessing data on Ecopart:\n\nGo to the ecopart website.\nSelect your project or set filters to a desired range of casts\n\nOnce projects are selected, select “export selection.\nThen Select “RAW”\n\nThis will put all the files in a .zip\nExtract those files and put them in a directory that you have access to.\n\n\n  \n    \n      Importing Data from Ecopart"
+  },
+  {
+    "objectID": "import_UVP_ecopart_import.html",
+    "href": "import_UVP_ecopart_import.html",
+    "title": "Importing UVP Data From Ecopart Export",
+    "section": "",
+    "text": "The first step to importing ecopart data is to guarantee that you exported the data correctly from ecopart. Follow those instructions here.\nThe next step is to import your into R for analysis.\nAll data in this UVP tutorial comes from the bats validation cruise in the Ecopart project “UofSC_UVP5_BATS_ae2016”. These casts were along a bats validation along a latitudinal transect.\n\nThe exported files should all be in a single directory\n\n\nImporting the data:\n\nUsing the r function ecopart_import() assign the one argument of a path to the directory of your files\nAssign the files to a list object\n\n\npath <- \"~/UVP/EX_BV_Data\" #path to ecopart export directory\necopart_list <- ecopart_import(path) #load files\n\n\nThis will create a three element list which can be used in analysis built into EcotaxaTools\n\n“par_files” - a list of tibbles with each particle file\n“zoo_files” - a list of tibbles with each plankton image file (classic tsv)\n“meta” - a tibble with the meta\n\n\n\n\nUnderstanding the ecopart file list\nIf you are new to working with lists, it’s worth reading a bit about them. While lists can be clunky, it allows for looping over large amounts of data stored in memory.\nBelow, I’ll briefly show how to interact with some of the data stored in the ecopart list\n\nLooking at zooplankton data\nZooplankton data are stored in tibbles in the list “zoo_files”. You can access elements of a list using the ‘$’ operator or by indexing the ‘bare’ elements with [[ index operator\n\n#all below with index the names files\n\nnames(ecopart_list$zoo_files)\n\n [1] \"bv57c1\"   \"bv57c2\"   \"bv57c3\"   \"bv57c4\"   \"bv57c5\"   \"bv57c6\"  \n [7] \"bv57c7\"   \"bv57c8\"   \"bv57c9\"   \"bv57c10\"  \"bv57c11\"  \"bv57c12\" \n[13] \"bv57c13\"  \"bv57c14\"  \"hs1390c1\" \"hs1390c2\" \"bv57c15\"  \"bv57c16\" \n[19] \"bv57c17\"  \"bv57c18\"  \"bv57c19\"  \"bv57c20\"  \"bv57c21\"  \"hs1391c1\"\n[25] \"hs1391c2\" \"hs1391c3\"\n\nnames(ecopart_list[[\"zoo_files\"]])\n\n [1] \"bv57c1\"   \"bv57c2\"   \"bv57c3\"   \"bv57c4\"   \"bv57c5\"   \"bv57c6\"  \n [7] \"bv57c7\"   \"bv57c8\"   \"bv57c9\"   \"bv57c10\"  \"bv57c11\"  \"bv57c12\" \n[13] \"bv57c13\"  \"bv57c14\"  \"hs1390c1\" \"hs1390c2\" \"bv57c15\"  \"bv57c16\" \n[19] \"bv57c17\"  \"bv57c18\"  \"bv57c19\"  \"bv57c20\"  \"bv57c21\"  \"hs1391c1\"\n[25] \"hs1391c2\" \"hs1391c3\"\n\nnames(ecopart_list[[3]])\n\n [1] \"bv57c1\"   \"bv57c2\"   \"bv57c3\"   \"bv57c4\"   \"bv57c5\"   \"bv57c6\"  \n [7] \"bv57c7\"   \"bv57c8\"   \"bv57c9\"   \"bv57c10\"  \"bv57c11\"  \"bv57c12\" \n[13] \"bv57c13\"  \"bv57c14\"  \"hs1390c1\" \"hs1390c2\" \"bv57c15\"  \"bv57c16\" \n[19] \"bv57c17\"  \"bv57c18\"  \"bv57c19\"  \"bv57c20\"  \"bv57c21\"  \"hs1391c1\"\n[25] \"hs1391c2\" \"hs1391c3\"\n\n\nEach zooplankton tibble has data from all vignettes collected from an individual uvp cast. You can access these in multiple ways with either the $ operator or [[ operators. These are very similar to the export data from standard Ecotaxa .tsv files. You can read more about those [here](./main_tsv-file-info.html). The key difference from these files are that some header files are slightly different. Namely, there are no object_ columns. To account for this, much of the other importing functions for other instruments format to match the UVP.\n\necopart_list$zoo_files[[3]]\n\n# A tibble: 301 x 91\n   orig_id    objid name  taxo_hierarchy classif_qual depth_including~ psampleid\n   <chr>      <dbl> <chr> <chr>          <chr>                   <dbl>     <dbl>\n 1 bv57c3_2~ 2.16e8 livi~ living         V                       124       34307\n 2 bv57c3_1~ 2.16e8 Cten~ living>Eukary~ V                        48.9     34307\n 3 bv57c3_1~ 2.16e8 Cten~ living>Eukary~ V                        48.9     34307\n 4 bv57c3_1~ 2.16e8 Cnid~ living>Eukary~ V                        52       34307\n 5 bv57c3_2~ 2.16e8 Cnid~ living>Eukary~ V                       142.      34307\n 6 bv57c3_1~ 2.16e8 Cnid~ living>Eukary~ V                        37.9     34307\n 7 bv57c3_1~ 2.16e8 Acan~ living>Eukary~ V                        49.2     34307\n 8 bv57c3_1~ 2.16e8 Cnid~ living>Eukary~ V                        51.2     34307\n 9 bv57c3_1~ 2.16e8 Cnid~ living>Eukary~ V                        51.3     34307\n10 bv57c3_1~ 2.16e8 Cnid~ living>Eukary~ V                        56.7     34307\n# ... with 291 more rows, and 84 more variables: `%area` <dbl>, angle <dbl>,\n#   area <dbl>, area_exc <dbl>, areai <dbl>, bx <dbl>, by <dbl>, cdexc <dbl>,\n#   centroids <dbl>, circ. <dbl>, circex <dbl>, compentropy <dbl>,\n#   compm1 <dbl>, compm2 <dbl>, compm3 <dbl>, compmean <dbl>, compslope <dbl>,\n#   convarea <dbl>, convarea_area <dbl>, convperim <dbl>,\n#   convperim_perim <dbl>, cv <dbl>, elongation <dbl>, esd <dbl>, fcons <dbl>,\n#   feret <dbl>, feretareaexc <dbl>, fractal <dbl>, height <dbl>, ...\n\n\n\n\nLooking at particle data"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Ecotaxa Tools Guide",
     "section": "",
-    "text": "The project is under current development so check back frequently. You can read the updates tab for new information here"
+    "text": "EcotaxaTools is an R package I developed to easily manage and analyze output from the ecotaxa website. Check out the github page for EcotaxaTools here.\nThe package is under active development so check back frequently. You can read the updates tab for new information here"
   },
   {
-    "objectID": "info_updates-page.html",
-    "href": "info_updates-page.html",
+    "objectID": "info_updates-page.html#section",
+    "href": "info_updates-page.html#section",
     "title": "Updates",
-    "section": "",
-    "text": "4/6/22: Created the quarto page to introduce the package and a short tutorial"
+    "section": "4/6/22",
+    "text": "4/6/22\n\nCreated the quarto page to introduce the package and a short tutorial\nMuch of the original package was not tidy friendly - I am giving it a soft overhaul to make it accessible for tidyverse oriented people"
   }
 ]

@@ -1,0 +1,4 @@
+"0","    path <- ""~/UVP/EX_BV_Data"" #path to ecopart export directory"
+"0","    ecopart_list <- ecopart_import(path) #load files"
+"2","Error in ecopart_import(path) : could not find function ""ecopart_import""
+"

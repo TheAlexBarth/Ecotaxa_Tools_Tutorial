@@ -2,14 +2,18 @@ project:
   type: website
 
 website:
-  title: "Ecotaxa_Tools_Tutorial"
+  title: "EcotaxaTools Tutorial"
   sidebar:
     style: 'docked'
+    search: false
     contents:
       - section: 'Main'
         contents:
           - href: index.qmd
           - href: info_updates-page.qmd
+      - section: 'Exporting Validated Data'
+        contents:
+          - href: export_UVP_ecopart-export.qmd
       - section: 'Importing Data'
         contents:
           - href: import_UVP_ecopart_import.qmd
@@ -19,7 +23,7 @@ website:
           text: 'Alex Barth'
 format:
   html:
-    theme: cosmo
+    theme: sandstone
     css: styles.css
 
 editor: visual
