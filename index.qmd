@@ -6,3 +6,23 @@ EcotaxaTools is an R package I developed to easily manage and analyze output fro
 
 The project is under current development so check back frequently.
 You can read the updates tab for new information [here](./info_updates-page.html)
+
+## Fundamentals
+
+This package was built to address the common management and data wrangling that are required to analyze data exported from the Ecotaxa application. It is designed to deal with data that come in what I refer to as an Ecotaxa-tsv data frame. This is a large list (in tabular format) of several vectors, with each element corresponding to an individual particle's image. 
+
+I wrote this package in a largely "functional" style. I try to brake down tasks into 
+individual functions which can be used to process data broadly associated with the ecotaxa format. In general, I avoid loops when lapply is an easier solution. When writing this package, I try to think of functions as either adders, modifiers, managers, or producers. There functions are grouped based on what they produce / how they impact the dataframe
+
+### Adders
+Adding functions will take a dataframe and respond a new vector or added column to the dataframe. These include functions like {ellips_vol()} which add a column for the ellipsoidal body volume for each particle. An adder function can also replace an existing column (such as {names_to()})
+
+### Modifiers
+Modifying functions modify the whole dataframe. Typically this is removing rows, such as {names_drop}
+
+
+### Managers
+Managing functions are those which allow application of other functions to a list of dataframes all at once. These functions can include things like {add_zoo} or {mod_zoo} which facilitate the looping over lists of ecotaxa-tsv dataframes
+
+### Producers
+Producing functions will make a new object from its input. This includes functions like {rel_taxa}, {bin_taxa}, and any plotting functions.
