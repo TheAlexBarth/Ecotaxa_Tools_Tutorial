@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EcotaxaTools Tutorial - Updates</title>
+<title>EcotaxaTools Tutorial - Understanding zooplankton export files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Updates</h1>
+      <h1 class="quarto-secondary-nav-title">Understanding zooplankton export files</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -97,7 +97,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info_updates-page.html" class="sidebar-item-text sidebar-link active">Updates</a>
+  <a href="./info_updates-page.html" class="sidebar-item-text sidebar-link">Updates</a>
   </div>
 </li>
     </ul>
@@ -182,7 +182,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Updates</h1>
+<h1 class="title d-none d-lg-block">Understanding zooplankton export files</h1>
 </div>
 
 
@@ -196,32 +196,12 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">4/6/22:</h2>
-<ul>
-<li>Created the quarto page to introduce the package and a short tutorial </li>
-</ul>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">4/20/22:</h2>
-<ul>
-<li>Added several functions. Dedicated formatting to adders, modifiers, managers, and plotters</li>
-</ul>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">6/28/22</h2>
-<ul>
-<li>Package release to 1.0.0.9000 </li>
-<li>EcotaxaTools now uses a specific class paradigm which assigns objects a class structure. </li>
-<li>From a user perspective, this won’t be noticed largely. However, on the backend of the functions it makes things run smoothly. Now, the functions to interact with are primarily “pointers”. These direct datasets to class-specific functions. This allows for functions to function differently based input. This allows for a variety of workflows and will make scaling to include new features easier. For the time being, this might create new challenges for functions as things get worked out.</li>
-<li>Added a uvp_par_conc and particle_plot features.</li>
-</ul>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">8/10/22:</h2>
-<ul>
-<li>Improving documentation. Adding examples and example datasets</li>
-</ul>
+<section id="how-to-think-about-.tsv-export-files" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-think-about-.tsv-export-files">How to think about .tsv export files</h3>
+<p>From ecotaxa, you export files of zooplankton data (large images). These come as .tsv files. In these files, there are a lot of data that can be a little overwhelming. However, all these columns host valuable data.</p>
+<p>In general, all the columns of the .tsv file correspond to characteristics for each vignette.</p>
+<p>If you export data directly from Ecotaxa, there will be metadata in the appropriate columns. For example each row has a value for the pixel to mm conversion. This is useful if you are working with Zooscan or Planktoscope data. Here, columns will be named based on what type of data are stored in it. There are ‘obj’ columns which correspond to things about the vignette. However, there are also columns related to the metadata like ‘acq’. It is a good idea to familarize yourself with what all these mean.</p>
+<p>However, if you export the data from ecopart,</p>
 
 
 </section>

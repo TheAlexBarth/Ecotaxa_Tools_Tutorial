@@ -10,26 +10,25 @@ The first step to importing ecopart data is to guarantee that you exported the d
 
 The next step is to import your into R for analysis.
 
-All data in this UVP tutorial comes from the bats validation cruise in the Ecopart project "UofSC_UVP5_BATS_ae2016". These casts were along a bats validation along a latitudinal transect.
+The exported files should all be in a single directory:
+<img src="./media/UVP_Ecopart-Import_Image02_BV-files.png" caption='Example of exported files from ecopart'/>
 
-<img src="./media/UVP_Ecopart-Import_Image01_BV-loc.png"/>
-
-The exported files should all be in a single directory
-
-<img src="./media/UVP_Ecopart-Import_Image02_BV-files.png"/>
+For this tutorial, I provided data in the package from AE1917. This is intended for examples only and not for research use. This data is stored as `ecopart_example` and is available throught the package
 
 ### Importing the data:
 
 1.  Using the r function `ecopart_import()` assign the one argument of a path to the directory of your files
 
-2.  Assign the files to a list object
+2.  Assign the files to a list object. By using `ecopart_import()`, the imported files will be an `ecopart_obj` class structure. \n
+    This class structure is defined by having three elements; (1) a `par_list` which has multiple `par_df` files; (2) a `zoo_list` which has multiple `zoo_df` files
 
 ```{r results='hide', message=FALSE}
-path <- "~/UVP/EX_BV_Data" #path to ecopart export directory
-ecopart_list <- ecopart_import(path) #load files
+dir_path <- system.file('extdata','ae1917_example-data', 
+                       package = 'EcotaxaTools') #This should be your directory location
+ecopart_list <- ecopart_import(dir_path) #load files
 ```
 
-3.  This will create a three element list which can be used in analysis built into EcotaxaTools
+3.  This will create a three element list which can be used in analysis built into EcotaxaTools. This object is an `ecopart_obj` class. Review the class system [here](./info_uvp_general-layout.html)
     1.  "par_files" - a list of tibbles with each particle file
 
     2.  "zoo_files" - a list of tibbles with each plankton image file (classic tsv)
@@ -44,22 +43,33 @@ Below, I'll briefly show how to interact with some of the data stored in the eco
 
 #### Looking at zooplankton data
 
-Zooplankton data are stored in tibbles in the list "zoo_files". You can access elements of a list using the '\$' operator or by indexing the 'bare' elements with `[[` index operator
+Zooplankton data are stored in tibbles in the list "zoo_files". You can access elements of a list using the `$` operator or by indexing the 'bare' elements with `[[` index operator. The names of the zoo_files correspond to the particular casts of a project.
 
 ```{r}
 
 #all below with index the names files
-
 names(ecopart_list$zoo_files)
 names(ecopart_list[["zoo_files"]])
-names(ecopart_list[[3]])
+names(ecopart_list[[2]])
 
 ```
 
-Each zooplankton tibble has data from all vignettes collected from an individual uvp cast. You can access these in multiple ways with either the `$` operator or `[[` operators. These are very similar to the export data from standard Ecotaxa .tsv files. You can read more about those [here](./main_tsv-file-info.html). The key difference from these files are that some header files are slightly different. Namely, there are no `object_` columns. To account for this, much of the other importing functions for other instruments format to match the UVP.
+Each zooplankton tibble has data from all vignettes collected from an individual uvp cast. You can access these in multiple ways with either the `$` operator or `[[` operators. These are very similar to the export data from standard Ecotaxa .tsv files. However, in an `ecopart_obj`, the metadata is stored separated (in the `meta` file). Not to worry, most EcotaxaTools functions will handle the metadata independently!
 
 ```{r}
 ecopart_list$zoo_files[[3]]
 ```
 
 #### Looking at particle data
+
+Particle data are stored in `par_df` tibbles for each cast. For a project, they will all be stored in the `par_files` element of the `ecopart_obj` list. Similar to the `zoo_files`, the names of the `par_files` correspond to the individual casts.
+
+A single `par_df` has 7 columns. The data here are presented in 1-m aggregate bins. Each row then is a 1-m depth bin with information about a single particle size class. Here are columns explained in detail:
+- The 'depth' column indicates the depth bin
+- The 'imgcount' column is the number of images taken in that depth bin (this is needed for volume sampled calculations)
+- The 'area' column indicates particle size as area of pixels
+- The 'nbr' column indicates the number of particles in that depth bin of that size class
+- The three greylimit columns correspond to the mean grey values of those particles. 
+```{r}
+ecopart_list$par_files[[1]]
+```

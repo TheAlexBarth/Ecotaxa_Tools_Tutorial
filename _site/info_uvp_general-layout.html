@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EcotaxaTools Tutorial - Updates</title>
+<title>EcotaxaTools Tutorial - UVP General Structure</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Updates</h1>
+      <h1 class="quarto-secondary-nav-title">UVP General Structure</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -97,7 +97,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info_updates-page.html" class="sidebar-item-text sidebar-link active">Updates</a>
+  <a href="./info_updates-page.html" class="sidebar-item-text sidebar-link">Updates</a>
   </div>
 </li>
     </ul>
@@ -112,7 +112,7 @@ ul.task-list{list-style: none;}
     <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info_uvp_general-layout.html" class="sidebar-item-text sidebar-link">UVP General Structure</a>
+  <a href="./info_uvp_general-layout.html" class="sidebar-item-text sidebar-link active">UVP General Structure</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -182,7 +182,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Updates</h1>
+<h1 class="title d-none d-lg-block">UVP General Structure</h1>
 </div>
 
 
@@ -196,32 +196,23 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">4/6/22:</h2>
-<ul>
-<li>Created the quarto page to introduce the package and a short tutorial </li>
-</ul>
+<p>Processing UVP data though ecotaxatools is aimed to create easy, clean code for managing large exports from Ecopart. These tools are intended to be used with the ‘raw’ export option. Ecopart does offer the ability to download data summaries. However, these can be limiting based on preset size bins or limited taxonomic scope. By downloading the raw export, you can manipulate the data in anyway that is appropriate for a project. EcotaxaTools uses classes to categorize the different objects which can be created through the main functions. When working with ecopart data, it will be imported as an <code>ecopart_obj</code>. These are comprised of three main parts: the particle data, zooplankton data, and the meta data associated with all the casts. There are several main functions which can operate on the ecopart_obj for organizing data. These are referred to as querying, adding, modifying, and producing functions. The first three are for manipulating and organizing an <code>ecopart_obj</code>. Producing functions are used to take an <code>ecopart_obj</code> and transform it into new data structures and other analysis tools.</p>
+<p>These functions are explained below:</p>
+<section id="querying-functions" class="level3">
+<h3 class="anchored" data-anchor-id="querying-functions">Querying functions:</h3>
+<p>There functions are to get quick information from an ecopart objects - <a href="./query_get-all.html"><code>get_all()</code></a> - <a href="./query_all-taxa.html"><code>all_taxa()</code></a></p>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">4/20/22:</h2>
-<ul>
-<li>Added several functions. Dedicated formatting to adders, modifiers, managers, and plotters</li>
-</ul>
+<section id="adding-functions" class="level3">
+<h3 class="anchored" data-anchor-id="adding-functions">Adding Functions:</h3>
+<p>These will add a column to all zoo_df files. However, they do not remove any data from the original data.</p>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">6/28/22</h2>
-<ul>
-<li>Package release to 1.0.0.9000 </li>
-<li>EcotaxaTools now uses a specific class paradigm which assigns objects a class structure. </li>
-<li>From a user perspective, this won’t be noticed largely. However, on the backend of the functions it makes things run smoothly. Now, the functions to interact with are primarily “pointers”. These direct datasets to class-specific functions. This allows for functions to function differently based input. This allows for a variety of workflows and will make scaling to include new features easier. For the time being, this might create new challenges for functions as things get worked out.</li>
-<li>Added a uvp_par_conc and particle_plot features.</li>
-</ul>
+<section id="modifying-functions" class="level3">
+<h3 class="anchored" data-anchor-id="modifying-functions">Modifying Functions:</h3>
+<p>These will modify the ecopart_obj and return a new ecopart_obj. These modify the data in some new way.</p>
 </section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">8/10/22:</h2>
-<ul>
-<li>Improving documentation. Adding examples and example datasets</li>
-</ul>
+<section id="producing-functions" class="level3">
+<h3 class="anchored" data-anchor-id="producing-functions">Producing Functions:</h3>
+<p>These functions take an ecopart_obj and will produce new data structures with summary data. These are the link to most analysis products.</p>
 
 
 </section>

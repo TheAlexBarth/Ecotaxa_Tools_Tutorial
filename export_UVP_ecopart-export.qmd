@@ -23,8 +23,8 @@ You can always export ecopart data directly from Ecotaxa. This is how you would 
 6.  Extract those files and put them in a directory that you have access to.
 
 ```{=html}
-<div class='nav-page nav-page-next' style='text-align:right'>
-  <a href='./import_UVP_ecopart_import.html' style='text-align:right'>
+<div class='nav-page nav-page-next' style='text-align: right'>
+  <a href='./import_UVP_ecopart_import.html' style='text-align: right'>
     <span class = 'nav-page-text'>
       Importing Data from Ecopart
     </span>

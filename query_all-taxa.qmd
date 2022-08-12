@@ -1,0 +1,14 @@
+---
+title: all_taxa()
+---
+
+Sometimes it is useful to quickly look at what the different types of taxa are in a project. `all_taxa()` makes this a quick operation to pull out all the taxa from an `ecopart_obj` without looping or massive indexing. This function is really a special use case of [`get_all()`](./query_get-all.html)
+
+Likely, when using this function, it should be combined with `unique()`.
+
+```{r}
+library(EcotaxaTools)
+ecopart_example |>
+    all_taxa() |>
+    unique()
+```

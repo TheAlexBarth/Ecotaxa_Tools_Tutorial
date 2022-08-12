@@ -1,0 +1,30 @@
+---
+title: get_all()
+---
+
+It is often useful to get quick information out of an `ecopart_obj` at the start of a project. `get_all()` is a useful funciton for these quick, interactive tasks. This will return a vector of all observations for that column. Alone this data may be overwhelming, so it is a good idea to combine it with next-step summary function like `range()`, `mean()`, `max()`, etc.
+
+If you are interested in pulling just a 
+
+#### What is the depth range of observations?
+```{r}
+library(EcotaxaTools)
+ecopart_example |> 
+    get_all('depth_including_offset') |>
+    range()
+```
+
+#### What is the average size?
+When working with an `ecopart_obj`, all the size based metrics will still be in pixels, not mm. `get_all()` has an argument for converting pixels to mm. For this to work, you must provide an `ecopart_obj`, not just a `zoo_list`.
+```{r}
+ecopart_example |>
+    get_all('esd', pixel_conv = T) |>
+    mean()
+```
+
+#### Additional Info:
+When using, users must specify which column they are interested in querying from the `zoo_df`. If unfamiliar with these names you can access them by getting the column names of any single `zoo_df`
+```{r}
+ecopart_example$zoo_files$bats361_ctd1 |> 
+    names()
+```

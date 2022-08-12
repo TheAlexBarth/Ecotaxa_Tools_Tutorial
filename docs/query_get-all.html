@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EcotaxaTools Tutorial - Updates</title>
+<title>EcotaxaTools Tutorial - get_all()</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,7 +127,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Updates</h1>
+      <h1 class="quarto-secondary-nav-title">get_all()</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -97,7 +160,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info_updates-page.html" class="sidebar-item-text sidebar-link active">Updates</a>
+  <a href="./info_updates-page.html" class="sidebar-item-text sidebar-link">Updates</a>
   </div>
 </li>
     </ul>
@@ -137,12 +200,12 @@ ul.task-list{list-style: none;}
   </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Querying Functions</a>
-      <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Querying Functions</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./query_all-taxa.html" class="sidebar-item-text sidebar-link">all_taxa()</a>
@@ -150,7 +213,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./query_get-all.html" class="sidebar-item-text sidebar-link">get_all()</a>
+  <a href="./query_get-all.html" class="sidebar-item-text sidebar-link active">get_all()</a>
   </div>
 </li>
     </ul>
@@ -182,7 +245,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Updates</h1>
+<h1 class="title d-none d-lg-block">get_all()</h1>
 </div>
 
 
@@ -196,32 +259,78 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">4/6/22:</h2>
-<ul>
-<li>Created the quarto page to introduce the package and a short tutorial </li>
-</ul>
+<p>It is often useful to get quick information out of an <code>ecopart_obj</code> at the start of a project. <code>get_all()</code> is a useful funciton for these quick, interactive tasks. This will return a vector of all observations for that column. Alone this data may be overwhelming, so it is a good idea to combine it with next-step summary function like <code>range()</code>, <code>mean()</code>, <code>max()</code>, etc.</p>
+<p>If you are interested in pulling just a</p>
+<section id="what-is-the-depth-range-of-observations" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-the-depth-range-of-observations">What is the depth range of observations?</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EcotaxaTools)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ecopart_example <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_all</span>(<span class="st">'depth_including_offset'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">range</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in min(x, na.rm = na.rm): no non-missing arguments to min; returning Inf</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in max(x, na.rm = na.rm): no non-missing arguments to max; returning
+-Inf</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  Inf -Inf</code></pre>
+</div>
+</div>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">4/20/22:</h2>
-<ul>
-<li>Added several functions. Dedicated formatting to adders, modifiers, managers, and plotters</li>
-</ul>
+<section id="what-is-the-average-size" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-the-average-size">What is the average size?</h4>
+<p>When working with an <code>ecopart_obj</code>, all the size based metrics will still be in pixels, not mm. <code>get_all()</code> has an argument for converting pixels to mm. For this to work, you must provide an <code>ecopart_obj</code>, not just a <code>zoo_list</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ecopart_example <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_all</span>(<span class="st">'esd'</span>, <span class="at">pixel_conv =</span> T) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NaN</code></pre>
+</div>
+</div>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">6/28/22</h2>
-<ul>
-<li>Package release to 1.0.0.9000 </li>
-<li>EcotaxaTools now uses a specific class paradigm which assigns objects a class structure. </li>
-<li>From a user perspective, this won’t be noticed largely. However, on the backend of the functions it makes things run smoothly. Now, the functions to interact with are primarily “pointers”. These direct datasets to class-specific functions. This allows for functions to function differently based input. This allows for a variety of workflows and will make scaling to include new features easier. For the time being, this might create new challenges for functions as things get worked out.</li>
-<li>Added a uvp_par_conc and particle_plot features.</li>
-</ul>
-</section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">8/10/22:</h2>
-<ul>
-<li>Improving documentation. Adding examples and example datasets</li>
-</ul>
+<section id="additional-info" class="level4">
+<h4 class="anchored" data-anchor-id="additional-info">Additional Info:</h4>
+<p>When using, users must specify which column they are interested in querying from the <code>zoo_df</code>. If unfamiliar with these names you can access them by getting the column names of any single <code>zoo_df</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ecopart_example<span class="sc">$</span>zoo_files<span class="sc">$</span>bats361_ctd1 <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "orig_id"                "objid"                  "name"                  
+ [4] "taxo_hierarchy"         "classif_qual"           "depth_including_offset"
+ [7] "psampleid"              "%area"                  "angle"                 
+[10] "area"                   "area_exc"               "areai"                 
+[13] "bx"                     "by"                     "cdexc"                 
+[16] "centroids"              "circ."                  "circex"                
+[19] "compentropy"            "compm1"                 "compm2"                
+[22] "compm3"                 "compmean"               "compslope"             
+[25] "convarea"               "convarea_area"          "convperim"             
+[28] "convperim_perim"        "cv"                     "elongation"            
+[31] "esd"                    "fcons"                  "feret"                 
+[34] "feretareaexc"           "fractal"                "height"                
+[37] "histcum1"               "histcum2"               "histcum3"              
+[40] "intden"                 "kurt"                   "kurt_mean"             
+[43] "major"                  "max"                    "mean"                  
+[46] "meanpos"                "median"                 "median_mean"           
+[49] "median_mean_range"      "min"                    "minor"                 
+[52] "mode"                   "nb1"                    "nb1_area"              
+[55] "nb1_range"              "nb2"                    "nb2_area"              
+[58] "nb2_range"              "nb3"                    "nb3_area"              
+[61] "nb3_range"              "perim."                 "perimareaexc"          
+[64] "perimferet"             "perimmajor"             "range"                 
+[67] "skelarea"               "skeleton_area"          "skew"                  
+[70] "skew_mean"              "slope"                  "sr"                    
+[73] "stddev"                 "symetrieh"              "symetrieh_area"        
+[76] "symetriehc"             "symetriev"              "symetriev_area"        
+[79] "symetrievc"             "tag"                    "thickr"                
+[82] "width"                  "x"                      "xm"                    
+[85] "xmg5"                   "xstart"                 "y"                     
+[88] "ym"                     "ymg5"                   "ystart"                </code></pre>
+</div>
+</div>
 
 
 </section>

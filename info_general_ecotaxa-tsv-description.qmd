@@ -1,8 +1,15 @@
 ---
-title: .tsv Export Files
+title: Understanding zooplankton export files
 ---
 
 ### How to think about .tsv export files
 
 From ecotaxa, you export files of zooplankton data (large images). These come as .tsv files.
-In these files, there are a lot of data that can be a little overwhelming. However, all these columsn host valuable data.
+In these files, there are a lot of data that can be a little overwhelming. However, all these columns host valuable data.
+
+In general, all the columns of the .tsv file correspond to characteristics for each vignette.
+
+If you export data directly from Ecotaxa, there will be metadata in the appropriate columns. For example each row has a value for the pixel to mm conversion. This is useful if you are working with Zooscan or Planktoscope data. 
+Here, columns will be named based on what type of data are stored in it. There are 'obj' columns which correspond to things about the vignette. However, there are also columns related to the metadata like 'acq'. It is a good idea to familarize yourself with what all these mean. 
+
+However, if you export the data from ecopart, 

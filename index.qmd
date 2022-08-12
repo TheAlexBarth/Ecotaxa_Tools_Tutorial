@@ -5,4 +5,7 @@ title: "Ecotaxa Tools Guide"
 EcotaxaTools is an R package I developed to easily manage and analyze output from the [ecotaxa website](https://ecotaxa.obs-vlfr.fr/). Check out the github page for EcotaxaTools [here](https://github.com/TheAlexBarth/EcotaxaTools).
 
 The project is under current development so check back frequently.
-You can read the updates tab for new information [here](./info_updates-page.html)
+You can read the updates tab for new information [here](./info_updates-page.html).
+
+The current build is primarily for UVP and ecopart data processing. However, there is some functionality which will be useful with the zoo_scan or other standard ecotaxa .tsv files.
+
