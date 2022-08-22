@@ -1,0 +1,40 @@
+---
+title: Relative Abundance
+---
+
+`rel_taxa()` provides a quick way to get relative abundance based solely off observations. Note this approach does not consider the volume sampled in acquiring observations. To get a better quantitative estimate, use [`uvp_zoo_conc()`](./uvp_zoo-concentration.html).
+\n\n
+This function will work either for a single `zoo_df` for multiple provided as either a `zoo_list` or `ecopart_obj`.
+
+# Use with UVP Data:
+## For multiple casts:
+To get the relative abundance of all living categories:
+```{r}
+library(EcotaxaTools)
+rel_data <- ecopart_example |> 
+    mod_zoo(names_drop, drop_names = 'not-living', drop_children = T) |>
+    add_zoo(names_to, col_name = 'name', new_names = c('Rhizaria', 'Copepoda', 'Chaetognatha', 'Eumalacostraca', 'living',
+                                                       'Trichodesmium'), suppress_print = T) |>
+    rel_taxa()
+# this produces a list for all casts with df of relative abundance
+# Single list element:
+rel_data[[1]]
+```
+## Across all observations:
+Zooplankton data are stored in individual `zoo_df` by each cast. So to quickly visualize the relative abundance across all casts, casts must be combined into one. This is best done with [`merge_casts()`](./man_uvp-merge-casts.html):
+```{r}
+name_map = list(
+    all_casts = ecopart_example$meta$profileid
+)
+
+rel_data <- ecopart_example |>
+    merge_casts(name_map = name_map) |>
+    rel_taxa()
+
+head(rel_data$all_casts, 15)
+```
+
+
+# Use with a single `zoo_df`
+
+To use with zooscan or planktoscope data, you can simply feed-in th `zoo_df` as the sole argument.

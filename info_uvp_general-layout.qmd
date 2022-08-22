@@ -6,15 +6,27 @@ Processing UVP data though ecotaxatools is aimed to create easy, clean code for 
 These tools are intended to be used with the 'raw' export option. Ecopart does offer the ability to download data summaries. However, these can be limiting based on preset size bins or limited taxonomic scope. By downloading the raw export, you can manipulate the data in anyway that is appropriate for a project. 
 \n\n\n
 EcotaxaTools uses classes to categorize the different objects which can be created through the main functions. When working with ecopart data, it will be imported as an `ecopart_obj`. These are comprised of three main parts: the particle data, zooplankton data, and the meta data associated with all the casts.
+```{mermaid}
+flowchart RL
+    subgraph ecopart_obj
+        direction RL
+        meta
+        subgraph zoo_list
+            zoo_df
+        end
+        subgraph par_list
+            par_df
+        end
+    end
+```
+
 \n
-There are several main functions which can operate on the ecopart_obj for organizing data. These are referred to as querying, adding, modifying, and producing functions. The first three are for manipulating and organizing an `ecopart_obj`. Producing functions are used to take an `ecopart_obj` and transform it into new data structures and other analysis tools.
+There are several main functions which can operate on the ecopart_obj for organizing data. These are referred to as querying, adding, modifying, and analysis functions. The first three are for manipulating and organizing an `ecopart_obj`. Analysis functions are used to take an `ecopart_obj` and transform it into new data structures and other analysis tools.
 
 These functions are explained below:
 
 ### Querying functions:
-There functions are to get quick information from an ecopart objects
-- [`get_all()`](./query_get-all.html)
-- [`all_taxa()`](./query_all-taxa.html)
+There functions are to get quick information from an ecopart objects\n
 
 ### Adding Functions:
 These will add a column to all zoo_df files. However, they do not remove any data from the original data.
@@ -22,5 +34,5 @@ These will add a column to all zoo_df files. However, they do not remove any dat
 ### Modifying Functions:
 These will modify the ecopart_obj and return a new ecopart_obj. These modify the data in some new way.
 
-### Producing Functions:
+### Analysis Functions:
 These functions take an ecopart_obj and will produce new data structures with summary data. These are the link to most analysis products.

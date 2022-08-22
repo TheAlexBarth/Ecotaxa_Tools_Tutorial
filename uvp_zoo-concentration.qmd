@@ -1,0 +1,52 @@
+---
+title: Zooplankton Concentration
+---
+
+A key feature of EcotaxaTools is easily getting the concentration of the zooplankton taxa from an `ecopart_obj`. This is done with `uvp_zoo_conc()`. You must provide an `ecopart_obj` as the first argument, then there is the option to specify which *cast_name* the calculation should be done on. This can be a single cast or multiple in a char vector. If not specified, it will be done on all casts. Finally, *breaks* must be provided as a numeric vector with limits on which to break. These should be the limits of each bin: `breaks = c(0,200,1000)` or `breaks = seq(0,1200,10)`. Additionally, if a bin's limits is outside the maximum range of observations, it will be trimmed to the maximum observation.\n\n
+There are additional arguments which can then be passed to [`bin_taxa()`](./gen_bin-taxa.html). For `ecopart_obj`, the applicable arguments are:\n
+ - *cat_col* the category to bin by. Default is set to 'name', or the taxonomic labels. However, if there is a new column/labelling it can be set with this category.\n
+ - *func_col* the column to apply the function to. Again by default this is 'name' but it could be changed if there is a need. For example, if there was a user-defined column for biomass it could be selected here\n
+ - *func* the function to apply to *func_col*. Default is set to `length`. This is used rather than `sum` because `bin_taxa()` will count each observation of that category. However, if calculating the total biomass of each category, `sum` would be appropriate.\n
+
+:::{.callout-warning}
+## Taxa Warning
+
+`uvp_zoo_conc()` has a runtime O(N x M x P) where N is the number of casts and M is the number of unique taxa and P is the number of depth-bins. Loops are still done within `lapply()` but there is the potential for very slow preformance. Especially if there are many casts or many taxa-labels. Consider simplifying taxanomic categories prior to using. Also, this is a good opportunity for a coffee break!
+:::
+
+:::{.callout-tip}
+### use bin_format()
+
+`uvp_zoo_conc()` will return a `$db` column which is a character vector with the depth limits. This is not very useful for down-stream use. `bin_format()` will take a `etx_conc_obj` and add columns for the min, max, and midpoint for each depth bin.
+:::
+
+# Examples:
+## Getting concentration for certain taxa:
+```{r}
+library(EcotaxaTools)
+zoo_conc <- ecopart_example |>
+    add_zoo(func = names_to, col_name = 'name', new_names = c('Chaetognatha','Copepoda','Eumalacostraca','living','not-living'), suppress_print = T) |> # rename for simplicity
+    mod_zoo(names_drop, drop_names = 'not-living') |> #remove detritus & artefact
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd2'), breaks = seq(0,1200,100)) |> # get concentration
+    lapply(bin_format) #formatting
+
+#take a peek:
+head(zoo_conc$bats361_ctd1,8)
+head(zoo_conc$bats361_ctd2,8)
+```
+
+## Calcuting biovolume concentration:
+Let's say you were interested in getting the volumetric concentration of all copepods for a single cast:
+```{r}
+cast1_copepod_conc <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Copepoda', keep_children = T) |>
+    add_zoo(func = names_to, col_name = 'name', new_names = 'Copepoda', suppress_print = T) |>
+    add_zoo(func = biovolume, col_name = 'biovol', shape = 'ellipsoid', pixel_mm = unique(ecopart_example$meta$acq_pixel)) |>
+    uvp_zoo_conc(cast_name = 'bats361_ctd12', breaks = seq(0,500,100), 
+                 func_col = 'biovol', func = sum) |>
+    bin_format()
+
+cast1_copepod_conc
+```
+
+There are several more options on how this feature can be used and customized for different projects. Look into the structure of `bin_taxa()` to futher understand this process. Additionally feel free to discuss any questions with Alex Barth.

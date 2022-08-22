@@ -73,3 +73,6 @@ A single `par_df` has 7 columns. The data here are presented in 1-m aggregate bi
 ```{r}
 ecopart_list$par_files[[1]]
 ```
+
+
+Learn more about how to process particle concentration data [here](./uvp_par-concentration.html)

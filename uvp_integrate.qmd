@@ -1,0 +1,56 @@
+---
+title: Depth-integration
+---
+
+Zooplankton concentration can be depth-integrated following either `bin_taxa()` or `uvp_zoo_conc()`. In EcotaxaTools, I provide a method for trapezoidal integration. This approach will use linear interpolation of the zooplankton concentration between mid-points of each depth bin.\n
+The core function is `trap_integrate()` which passes arguments to a linear interpolation function `lin_interp()` and to the base `integrate()` function. At times, `integrate()` will return errors from processing/accuracy. These can be circumvented by increaseing the number of subdivisions with *subdivision* (default is set to 100, typically I'll increase to 1000L) or by increasing the *rel.tol*. By default *rel.tol* is set to `.Machine$double.eps^25` and tolerance can be increased by changing that exponent.
+\n
+
+There are a few ways to apply the integration tools:
+
+## Integrating a single dataframe and one species:
+If there is a single `zoo_df`, and a single species, then the user must specify the columns manually.
+\n\n
+For example, if you were only interested in the *Trichodesmium* integrated biovolume from a single cast:
+```{r}
+library(EcotaxaTools)
+tricho_only <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Trichodesmium', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', new_names = 'Trichodesmium', suppress_print = T) |>
+    add_zoo(func = biovolume, col_name = 'biovol', shape = 'ellipsoid', 
+            pixel_mm = unique(ecopart_example$meta$acq_pixel)) |>
+    uvp_zoo_conc(func_col = 'biovol', func = sum, breaks = seq(0,400,25))
+
+tricho_c1 <- tricho_only[[1]] |>
+    bin_format() #get cast 1 only
+
+## Calculate trapzoidal integration
+intg_tricho = trap_integrate(x = tricho_c1$mp, y = tricho_c1$conc_m3,
+                              min_x = 0, max_x = 400)
+```
+
+## Integrating mutliple species in a dataframe:
+For multiple taxa, the `integrate_all()` will apply `trap_integrate()` for each unique taxa. This function also has an option for formatting, if `bin_format()` has yet to be applied.\n
+A list of integration dataframes for each taxa will be returned. To collapse this into a single df, use `intg_to_tib()`.
+For example, if you were interested in the integrated abundance of all crustaceans:
+```{r}
+crustacea_conc <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Crustacea', keep_children = T) |>
+    uvp_zoo_conc(breaks = seq(0,1200,100))
+
+crustacea_c1 <- crustacea_conc[[1]]
+intg_crustacea <- integrate_all(crustacea_c1, need_format = T)
+intg_crustacea |>
+    intg_to_tib()
+```
+
+## Integrating multiple taxa across several casts
+Most useful for incorporation with the UVP / `ecopart_obj` framework would be to include `integrate_all()` with a `lapply()`.
+\n\n
+For example, using the crustacea_conc from the previous example:
+```{r}
+crustacea_conc |>
+    lapply(integrate_all, need_format = T) |>
+    lapply(intg_to_tib) |>
+    list_to_tib('cast')
+```

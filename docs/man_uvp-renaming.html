@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-99.9.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EcotaxaTools Tutorial - Re-naming taxa in zoo files</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<link href="././media/etx-favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Re-naming taxa in zoo files</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">EcotaxaTools Tutorial</a> 
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Main</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Ecotaxa Tools Guide</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./info_updates-page.html" class="sidebar-item-text sidebar-link">Updates</a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">UVP &amp; Ecopart Data Processing</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./info_uvp_general-layout.html" class="sidebar-item-text sidebar-link">UVP General Structure</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Web Export / R Import</a>
+      <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./export_UVP_ecopart-export.html" class="sidebar-item-text sidebar-link">Exporting Ecopart Data</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import_UVP_ecopart_import.html" class="sidebar-item-text sidebar-link">Importing UVP Data From Ecopart Export</a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Querying Ecopart Objects</a>
+      <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./query_all-taxa.html" class="sidebar-item-text sidebar-link">all_taxa()</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./query_get-all.html" class="sidebar-item-text sidebar-link">get_all()</a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Manipulating Zoo Files</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./man_uvp-modifiers.html" class="sidebar-item-text sidebar-link">Modifying Ecopart Objects</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./man_uvp-renaming.html" class="sidebar-item-text sidebar-link active">Re-naming taxa in zoo files</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./man_uvp-split-obj.html" class="sidebar-item-text sidebar-link">Splitting an ecopart_obj</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./man_uvp-merge-casts.html" class="sidebar-item-text sidebar-link">Merging casts</a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">Analysis Tools</a>
+      <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uvp_par-concentration.html" class="sidebar-item-text sidebar-link">Particle Concentration</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uvp_zoo-concentration.html" class="sidebar-item-text sidebar-link">Zooplankton Concentration</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uvp_avg-concentration.html" class="sidebar-item-text sidebar-link">Averaging Concentration</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uvp_integrate.html" class="sidebar-item-text sidebar-link">Depth-integration</a>
+  </div>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">General Use Functions</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gen_biovolume.html" class="sidebar-item-text sidebar-link">biovolume()</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gen_rel-taxa.html" class="sidebar-item-text sidebar-link">Relative Abundance</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gen_bin-taxa.html" class="sidebar-item-text sidebar-link">bin_taxa()</a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">Helper Functions</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./help_list-to-tib.html" class="sidebar-item-text sidebar-link">list_to_tib()</a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">Made By:</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://thealexbarth.github.io" class="sidebar-item-text sidebar-link">Alex Barth</a>
+  </div>
+</li>
+    </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Re-naming taxa in zoo files</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="default-pathway" class="level3">
+<h3 class="anchored" data-anchor-id="default-pathway">Default Pathway</h3>
+<p>There are a few built-in ways to change the names of zooplankton in an <code>ecopart_obj</code>. These methods all rely on either <a href="./man_uvp-modifiers.html#add_zoo()"><code>add_zoo()</code></a> or <a href="./man_uvp-modifiers.html#mod_zoo()"><code>mod_zoo()</code></a>. Additionally renaming using these methods is assuming the taxonomic hierarchy is correct for all rows. If you’d like to rename a specific taxa (outside the taxanomic hierarchy), then see below for an alternative approach.</p>
+<section id="names_to" class="level4">
+<h4 class="anchored" data-anchor-id="names_to">names_to()</h4>
+<p>Often, renaming taxa is just grouping categories to a more broad category on the tree of life. <code>names_to()</code> is very effective for this. You can provide either a single <code>zoo_df</code> or an <code>ecopart_obj</code> (through <code>add_zoo()</code>) and a character vector of what names you would like to have as labels. <code>names_to()</code> will categorize each row to the most specific provided category in it’s taxanomic hierarchy. For example, if you were interested in only having Copepoda, Chaetognatha, and Eumalacostraca, provide the argument <code>new_names = c('Copepoda','Chaetognatha','Eumalacostraca', 'living', 'non-living')</code>. It is important to provide the <code>living</code> and <code>non-living</code> tags because if a taxa doesn’t match into the <code>new_names</code>, the function will through an error. By default <code>names_to()</code> will print out a list of each name change. This is very helpful to look at the first time working with a new dataset to ensure no mistakes. However, in more streamlined code, be sure to set <code>suppress_print = T</code>. To utilize <code>names_to()</code> on an <code>ecopart_obj</code>, you must use <code>add_zoo()</code>. Think that you are adding a new name column to each <code>zoo_df</code>. However, be sure to set the <code>new_name</code> argument to ‘name’ so that it replaces the old name df. Alternatively, you can create a new column with the new names if you are interested in keeping both.</p>
+<p>Finally, when using <code>names_to()</code> with an <code>ecopart_obj</code> as shown below, it will print the unique reclassifications for each <code>zoo_df</code>. This is a pretty ugly printout but work looking at the first time working with a dataset. In this example, I set <code>suppress_print = T</code> to avoid all that clutter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EcotaxaTools)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#re classifying with names_to()</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>new_obj <span class="ot">&lt;-</span> ecopart_example <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">add_zoo</span>(<span class="at">func =</span> names_to, <span class="at">col_name =</span> <span class="st">'name'</span>, <span class="at">new_names =</span> <span class="fu">c</span>(<span class="st">'Chaetognatha'</span>,<span class="st">'Copepoda'</span>,<span class="st">'Eumalacostraca'</span>,<span class="st">'living'</span>,<span class="st">'not-living'</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">suppress_print =</span> T)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># just to view an example</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>new_obj<span class="sc">$</span>zoo_files<span class="sc">$</span>bats361_ctd1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3,237 × 90
+   orig_id    objid name  taxo_hierarchy classif_qual depth_including… psampleid
+   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;
+ 1 bats361_… 1.46e8 not-… not-living&gt;de… V                        54       33963
+ 2 bats361_… 1.46e8 not-… not-living&gt;de… V                        43.4     33963
+ 3 bats361_… 1.46e8 not-… not-living&gt;de… V                        52.1     33963
+ 4 bats361_… 1.46e8 not-… not-living&gt;de… V                        23.4     33963
+ 5 bats361_… 1.46e8 not-… not-living&gt;de… V                        53.3     33963
+ 6 bats361_… 1.46e8 not-… not-living&gt;de… V                        74.7     33963
+ 7 bats361_… 1.46e8 not-… not-living&gt;ar… V                        70.4     33963
+ 8 bats361_… 1.46e8 not-… not-living&gt;ar… V                        42.5     33963
+ 9 bats361_… 1.46e8 not-… not-living&gt;de… V                        57.1     33963
+10 bats361_… 1.46e8 not-… not-living&gt;de… V                        83.1     33963
+# … with 3,227 more rows, and 83 more variables: `%area` &lt;dbl&gt;, angle &lt;dbl&gt;,
+#   area &lt;dbl&gt;, area_exc &lt;dbl&gt;, areai &lt;dbl&gt;, bx &lt;dbl&gt;, by &lt;dbl&gt;, cdexc &lt;dbl&gt;,
+#   centroids &lt;dbl&gt;, circ. &lt;dbl&gt;, circex &lt;dbl&gt;, compentropy &lt;dbl&gt;,
+#   compm1 &lt;dbl&gt;, compm2 &lt;dbl&gt;, compm3 &lt;dbl&gt;, compmean &lt;dbl&gt;, compslope &lt;dbl&gt;,
+#   convarea &lt;dbl&gt;, convarea_area &lt;dbl&gt;, convperim &lt;dbl&gt;,
+#   convperim_perim &lt;dbl&gt;, cv &lt;dbl&gt;, elongation &lt;dbl&gt;, esd &lt;dbl&gt;, fcons &lt;dbl&gt;,
+#   feret &lt;dbl&gt;, feretareaexc &lt;dbl&gt;, fractal &lt;dbl&gt;, height &lt;dbl&gt;, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to see all taxa names</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>new_obj <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">all_taxa</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "not-living"     "living"         "Eumalacostraca" "Copepoda"      
+[5] "Chaetognatha"  </code></pre>
+</div>
+</div>
+</section>
+<section id="names_drop" class="level4">
+<h4 class="anchored" data-anchor-id="names_drop">names_drop()</h4>
+<p>To remove particular taxa/labels from the data, <code>names_drop()</code> is the most effective option. With this approach, just specify which labels should be dropped in the <code>drop_names</code> argument. There is then also the option to <code>drop_children</code>. By default it is set to <code>FALSE</code>, however if set to <code>TRUE</code>, all taxanomic children will be removed. Be cautious with this option as it is easy to remove categories unintentionally. When working with <code>ecopart_obj</code>, you’ll want to use <code>mod_zoo()</code> as this will iterate <code>names_drop()</code> across all the <code>$zoo_files</code>.</p>
+<p>For example, many times it might be desired to remove all non-living categories:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>only_living <span class="ot">&lt;-</span> ecopart_example <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mod_zoo</span>(<span class="at">func =</span> names_drop, <span class="at">drop_names =</span> <span class="st">'not-living'</span>, <span class="at">drop_children =</span> T) <span class="co">#drop all non-living taxa &amp; children</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>only_living <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">all_taxa</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">unique</span>() <span class="co">#print out the unique taxa - note only living remain.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "solitaryglobule"         "tuff"                   
+ [3] "Eumalacostraca"          "Copepoda"               
+ [5] "Aulacanthidae"           "puff"                   
+ [7] "Collodaria"              "duplicate"              
+ [9] "Chaetognatha"            "other&lt;living"           
+[11] "Rhizaria"                "colonial&lt;Rhizaria"      
+[13] "Acantharea"              "Aulosphaeridae"         
+[15] "darksphere"              "Ostracoda"              
+[17] "Aulacantha"              "Coelographis"           
+[19] "Eucalanidae"             "head&lt;Chaetognatha"      
+[21] "Castanellidae"           "Coelodendridae"         
+[23] "Actinopterygii"          "Phaeodaria"             
+[25] "temp circle"             "tail&lt;Chaetognatha"      
+[27] "house"                   "Crustacea"              
+[29] "Foraminifera"            "Medusettidae"           
+[31] "Cnidaria&lt;Hydrozoa"       "Cnidaria&lt;Metazoa"       
+[33] "solitaryblack"           "Pteropoda"              
+[35] "Coelodendrum"            "Ctenophora&lt;Metazoa"     
+[37] "colonial&lt;Aulosphaeridae" "Aulatractus"            
+[39] "Alciopidae"              "Pelagia"                
+[41] "Siphonophorae"           "Poeobius"               
+[43] "Annelida"                "Cannosphaeridae"        
+[45] "Salpida"                </code></pre>
+</div>
+</div>
+</section>
+<section id="names_keep" class="level4">
+<h4 class="anchored" data-anchor-id="names_keep">names_keep()</h4>
+<p>Alternatively, you might be interested in working with specific taxa/labels only. For this, <code>names_keep()</code> might be the better option. Functionally, it is very similar to <code>names_drop()</code>, rather it will keep the specified names rather than removing them. For example: you might be interested in only the Rhizaria taxa:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Rhiz_only <span class="ot">&lt;-</span> ecopart_example <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mod_zoo</span>(<span class="at">func =</span> names_keep, <span class="at">keep_names =</span> <span class="st">'Rhizaria'</span>, <span class="at">keep_children =</span> T) <span class="co">#trim to only have rhizaria</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Rhiz_only <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">all_taxa</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">unique</span>() <span class="co">#print out the unique taxa </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "solitaryglobule"         "Aulacanthidae"          
+ [3] "Collodaria"              "Rhizaria"               
+ [5] "colonial&lt;Rhizaria"       "Acantharea"             
+ [7] "Aulosphaeridae"          "Aulacantha"             
+ [9] "Coelographis"            "Castanellidae"          
+[11] "Coelodendridae"          "Phaeodaria"             
+[13] "Foraminifera"            "Medusettidae"           
+[15] "solitaryblack"           "Coelodendrum"           
+[17] "colonial&lt;Aulosphaeridae" "Aulatractus"            
+[19] "Cannosphaeridae"        </code></pre>
+</div>
+</div>
+</section>
+<section id="re-naming-can-go-either-way" class="level4">
+<h4 class="anchored" data-anchor-id="re-naming-can-go-either-way">Re-naming can go either way:</h4>
+<p><code>names_keep()</code> and <code>names_drop()</code> can be used to accomplish the same task. It is situationally deterimed whether it is easier to remove names specifically or keep names specifically. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>only_living <span class="ot">&lt;-</span> ecopart_example <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mod_zoo</span>(<span class="at">func =</span> names_keep, <span class="at">keep_names =</span> <span class="st">'living'</span>, <span class="at">keep_children =</span> T)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>not_dead <span class="ot">&lt;-</span> ecopart_example <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mod_zoo</span>(<span class="at">func =</span> names_drop, <span class="at">drop_names =</span> <span class="st">'not-living'</span>, <span class="at">drop_children =</span> T)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(only_living, not_dead) <span class="co"># It is the same</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Finally, while shown in the previous examples, I only dropped at high-level categories. However, you can be specific and list multiple labels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If you only want aulospheridae, aulacantha, aulacanthidae, aulotractus, etc</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ex4 <span class="ot">&lt;-</span> ecopart_example <span class="sc">|&gt;</span>  </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mod_zoo</span>(names_keep, <span class="at">keep_names =</span> <span class="fu">c</span>(<span class="st">'Aulosphaeridae'</span>, <span class="st">'Aulacanthidae'</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">keep_children =</span> T)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>ex4 <span class="sc">|&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">all_taxa</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Aulacanthidae"           "Aulosphaeridae"         
+[3] "Aulacantha"              "colonial&lt;Aulosphaeridae"
+[5] "Aulatractus"            </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also string togehter these functions if you want to trim it more specifically</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ex5 <span class="ot">&lt;-</span> ecopart_example <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>            <span class="fu">add_zoo</span>(names_to, <span class="at">col_name =</span> <span class="st">'name'</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">new_names =</span> <span class="fu">c</span>(<span class="st">'living'</span>, <span class="st">'not-living'</span>,<span class="st">'Copepoda'</span>,<span class="st">'Chaetognatha'</span>,<span class="st">"Eumalacostraca"</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">suppress_print =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mod_zoo</span>(names_drop, <span class="at">drop_names =</span> <span class="fu">c</span>(<span class="st">'living'</span>, <span class="st">'not-living'</span>)) <span class="co">#note drop_children = FALSE</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>ex5 <span class="sc">|&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">all_taxa</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">unique</span>() <span class="co"># now we only have 3 labels.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Eumalacostraca" "Copepoda"       "Chaetognatha"  </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="renaming-specific-taxa" class="level3">
+<h3 class="anchored" data-anchor-id="renaming-specific-taxa">Renaming specific taxa</h3>
+<p>It could be the case you need to re-name a particular classification. For example, if you were working with a dataset where the annotator labeled something as ‘darksphere’ but you want these labeled as ‘feces’, you’ll want to re-classify this particular row without the functions described above. In the case you need to re-classify a particular taxa, you can rely on <a href="'.'"><code>add_zoo()</code></a> and a user-supplied function. Remember that to use add_zoo() you’ll need to have a function take in the <code>zoo_df</code> and return a vector (of <code>length==nrow(df)</code>). First, we can define a function for this task:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>darksphere_to_feces <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    orig_name <span class="ot">&lt;-</span> df<span class="sc">$</span>name <span class="co">#get original names</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    orig_name[<span class="fu">which</span>(orig_name <span class="sc">==</span> <span class="st">'darksphere'</span>)] <span class="ot">&lt;-</span> <span class="st">'feces'</span> <span class="co">#re-classify just those names</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(orig_name) <span class="co">#return the modified </span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then, this function can be compatible with the <code>add_col()</code> function. However, you’ll want to replace the <code>$name</code> column rather than create a new one:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ecopart_example <span class="ot">&lt;-</span> ecopart_example <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">add_zoo</span>(darksphere_to_feces, <span class="st">'name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

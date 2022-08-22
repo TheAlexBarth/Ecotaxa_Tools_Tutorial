@@ -9,7 +9,7 @@ title: "Updates"
 ## 4/20/22: 
 - Added several functions. Dedicated formatting to adders, modifiers, managers, and plotters\n
 
-## 6/28/22
+## 6/28/22:
 - Package release to 1.0.0.9000 \n
 - EcotaxaTools now uses a specific class paradigm which assigns objects a class structure. \n
 - From a user perspective, this won't be noticed largely. However, on the backend of the functions it makes things run smoothly. Now, the functions to interact with are primarily "pointers". These direct datasets to class-specific functions. This allows for functions to function differently based input. This allows for a variety of workflows and will make scaling to include new features easier. For the time being, this might create new challenges for functions as things get worked out.\n

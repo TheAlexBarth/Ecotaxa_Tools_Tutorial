@@ -1,0 +1,29 @@
+---
+title: Averaging Concentration
+---
+
+Once zooplankton concentration has been calculated, you can average casts within the set depth bins. This is similar to [merging casts](./man_uvp-merge-casts.html). However, with the average approach, the standard deviation between casts is also provided.\n\n
+For averaging casts, a *name_map* must be provided. This is a list structure with each item a character vector of profileids corresponding to the names of casts. The names of each item will be the name of the new-average casts.
+\n\n
+Averaging should be done on similar casts. Such as daytime at the same station and nighttime at the same station, etc.\n
+```{r}
+library(EcotaxaTools)
+# describe name map
+day_night_map <- list(
+    day = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
+    night = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6')
+)
+
+#get average concentration for day & night of rhizaria taxa
+avg_zoo_conc <- ecopart_example |> 
+    mod_zoo(names_keep, keep_names = c('Acantharea','Phaeodaria','Foraminifera'), keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', new_names = c('Acantharea','Phaeodaria','Foraminifera'), suppress_print = T) |>
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
+                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                 breaks = c(0, 500, 100)) |>
+    average_casts(name_map = day_night_map) |>
+    lapply(bin_format)
+
+avg_zoo_conc
+```
+

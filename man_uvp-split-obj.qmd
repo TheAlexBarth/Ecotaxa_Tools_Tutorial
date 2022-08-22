@@ -1,0 +1,16 @@
+---
+title: Splitting an ecopart_obj
+---
+
+At times it might be worthwhile to split an `ecopart_obj` into multiple. For example, you might want to split casts based on the time of day, station, seasons, etc.\n
+`split_ecopart_obj()` will return a list with each item being an `ecopart_obj` based on the split.
+Users must provide an `ecopart_obj` and a *split_by* argument.\n\n
+For example:\n
+
+```{r}
+library(EcotaxaTools)
+split_objs <- ecopart_example |>
+    split_ecopart_obj(split_by = 'stationid')
+# this will produce 3 ecopart_objs
+names(split_objs)
+```

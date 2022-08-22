@@ -1,0 +1,17 @@
+---
+title: bin_taxa()
+---
+
+To organize count data from a `zoo_df` by taxanomic categories, `bin_taxa()` is the way to go. This is the engine behind [`uvp_zoo_conc()`](./uvp_zoo-concentration.html). In it's current configuration, `bin_taxa()` is intended for binning by taxa into specified depth-bins. However, it's future use should allow for binning by season, location, or other categories. Under the current configuraiton, the zooscan option will allow for alternative binning, it might just require some hard-coding.
+\n\n
+
+## Main Functionality:
+The main argument needed to provide is a `zoo_df` and an argument for *depth_breaks*. This is a character vector of the limits for each depth bin. For example, to distinguish the epipelagic and the mesopelagic, you can set `depth_breaks = c(0,200,1200)`.\n
+By default, `bin_by()` will identify each unique taxa by the `$name` or `$object_annotation_category` column and return the count of each label in each bin. Other columns can be specified with the *cat_col* argument if there another column to aggregate by (ex an alternative name).\n
+Additionally, while the main use of `bin_taxa()` is to count the number of observations in each bin, it can be used with other functions. The *func* and *func_col* can be used to specify what other columns to apply the function to. For an example look at its application in the [uvp example](./uvp_zoo-concentration.html#Calulating-biovolume-concentration)
+
+## Use with UVP:
+To use `bin_taxa()` with UVP data, it is best to go through [`uvp_zoo_conc()`](./uvp_zoo-concentration.html). However, it is possible to use `bin_taxa()` with a single `zoo_df`. One consideration with the UVP is that if there are no observations in a depth-bin you must set `force_bins = TRUE`. This isn't an issue for net samples. However, it can be an issue with the UVP because it may sample a bin with nothing in it. Likely that is if bins are too small. Nonetheless, this is already accounted for in `uvp_zoo_conc()`.
+
+## Use with Zooscan:
+Currently, the zooscan configuration will simply bin based on unique sample_id columns. Thus, it is important to be considerate of what the sample_id's indicate. To use, simply set `zooscan = T` and it will return counts aggregated by sample_id.

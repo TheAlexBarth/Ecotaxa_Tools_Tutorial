@@ -19,12 +19,30 @@ website:
             contents:
               - href: export_UVP_ecopart-export.qmd
               - href: import_UVP_ecopart_import.qmd
-          - section: Querying Functions
+          - section: Querying Ecopart Objects
             contents:
               - href: query_all-taxa.qmd
               - href: query_get-all.qmd
-          - section: Working with Ecopart Objects
+          - section: Manipulating Zoo Files
+            contents:
+              - href: man_uvp-modifiers.qmd
+              - href: man_uvp-renaming.qmd
+              - href: man_uvp-split-obj.qmd
+              - href: man_uvp-merge-casts.qmd
           - section: Analysis Tools
+            contents:
+              - href: uvp_par-concentration.qmd
+              - href: uvp_zoo-concentration.qmd
+              - href: uvp_avg-concentration.qmd
+              - href: uvp_integrate.qmd
+      - section: General Use Functions
+        contents:
+          - href: gen_biovolume.qmd
+          - href: gen_rel-taxa.qmd
+          - href: gen_bin-taxa.qmd
+      - section: Helper Functions
+        contents:
+          - href: help_list-to-tib.qmd
       - section: "Made By:"
         contents:
         - href: https://thealexbarth.github.io

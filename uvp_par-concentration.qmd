@@ -1,0 +1,51 @@
+---
+title: Particle Concentration
+---
+
+:::{.callout-warning}
+As of ver1.2.0.9000, the bulk of the EcotaxaTools functionality are primarily built toward zooplankton data. Particle functionality are limited but will improve with new updates. If you'd like to collaborate on this package, contact Alex Barth.
+::: 
+
+## Calculate the particle concentration in 1-m depth bins
+
+`uvp_par_conc()` can be used to quickly calculate the particle concentration in 1-m depth bins. The user must specify what sizes (by ESD) particles should be grouped. If left unspecified, the total particle concentration (regardless of size) will be returned.\n\n
+
+To specify particle size classes use *bin_limits*. *min_esd* and *max_esd* can both be used to specify sizes.
+```{r}
+library(EcotaxaTools)
+# in this list, there is a faulty cast at index 16
+ecopart_example$par_files <- ecopart_example$par_files[-16]
+par_conc <- ecopart_example |> uvp_par_conc(bin_limits = c(.1,.25,1,2)) # for three size classes
+```
+
+This now creates a list with particle concentrations for each cast. This data can all be combined with [`list_to_tib()`](./help_list-to-tib.html)
+
+```{r}
+par_conc |> list_to_tib('cast')
+```
+
+## Plotting Particle concentraitons
+
+There is also a default plotting method for particle data. If you provide a `par_list`, `ecopart_obj`, or `par_conc_list` (from `uvp_par_conc()`), then the plots will open a new window for each. \n\n
+Providing a single dataframe (`par_df`) will produce single plots. Two plots can be made:
+\n
+
+:::{.callout-note}
+In the below examples, I feed the original `par_df` to the `particle_plot()` function. This will pass the data through `uvp_par_conc()`. However, you can also pass the output of `uvp_par_conc()` to `particle_plot()` if you wish to have that data separately available. For example: `ex1 <- uvp_par_conc(); particle_plot(ex1$cast1)`.
+:::
+
+#### Total particle concentration:
+If there are no particle size bins, total particle concentration will be returned
+```{r}
+plot1 <- ecopart_example$par_files$bats361_ctd1 |>
+    particle_plot(img_vol = 1.1, pixel_mm = 0.092)
+print(plot1)
+```
+
+#### Binned particle concentration:
+```{r}
+plot2 <- ecopart_example$par_files$bats361_ctd1 |>
+    particle_plot(img_vol = 1.1, pixel_mm = 0.092,
+                  bin_limits = c(0.2,0.5,1))
+print(plot2)
+```

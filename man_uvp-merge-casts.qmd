@@ -1,0 +1,24 @@
+---
+title: Merging casts
+---
+
+It might useful to pool or merge casts. This is frequently done if there are multiple casts done in one station, or at a similar time. By pooling casts, it can increase the volume sampled, allowing for more robust estimates of zooplankton abundance. However, be cautious when choosing to merge casts, [averaging casts](uvp_avg-concentration.qmd) will produce similar esitimates and allow for more context about variation at a single site. Read more [here](https://www.frontiersin.org/articles/10.3389/fmars.2022.898057/full).\n\n
+
+To merge casts, you must provide a *name_map* argument. This should be a list where each element of the list is a character vector with the casts to be merged. The names of the list items will be the new names of the casts. Note that this will merge both `$zoo_files` and `$par_files`.
+\n\n
+For Example:
+```{r}
+library(EcotaxaTools)
+
+#merging casts based on station:
+name_map = list(
+    'gf' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid == 'gf')],
+    'other' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid != 'gf')]
+)
+
+merged_obj <- ecopart_example |>
+    merge_casts(name_map = name_map)
+# now there's only two aggregate casts:
+names(merged_obj$par_files)
+names(merged_obj$zoo_files)
+```

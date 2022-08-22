@@ -1,0 +1,111 @@
+---
+title: Re-naming taxa in zoo files
+---
+
+### Default Pathway
+There are a few built-in ways to change the names of zooplankton in an `ecopart_obj`. These methods all rely on either [`add_zoo()`](./man_uvp-modifiers.html#add_zoo()) or [`mod_zoo()`](./man_uvp-modifiers.html#mod_zoo()). Additionally renaming using these methods is assuming the taxonomic hierarchy is correct for all rows. If you'd like to rename a specific taxa (outside the taxanomic hierarchy), then see below for an alternative approach.
+
+#### names_to()
+Often, renaming taxa is just grouping categories to a more broad category on the tree of life. `names_to()` is very effective for this. You can provide either a single `zoo_df` or an `ecopart_obj` (through `add_zoo()`) and a character vector of what names you would like to have as labels. `names_to()` will categorize each row to the most specific provided category in it's taxanomic hierarchy.\n
+For example, if you were interested in only having Copepoda, Chaetognatha, and Eumalacostraca, provide the argument `new_names = c('Copepoda','Chaetognatha','Eumalacostraca', 'living', 'non-living')`. It is important to provide the `living` and `non-living` tags because if a taxa doesn't match into the `new_names`, the function will through an error.\n\n
+By default `names_to()` will print out a list of each name change. This is very helpful to look at the first time working with a new dataset to ensure no mistakes. However, in more streamlined code, be sure to set `suppress_print = T`.\n
+To utilize `names_to()` on an `ecopart_obj`, you must use `add_zoo()`. Think that you are adding a new name column to each `zoo_df`. However, be sure to set the `new_name` argument to 'name' so that it replaces the old name df. Alternatively, you can create a new column with the new names if you are interested in keeping both.\n
+
+Finally, when using `names_to()` with an `ecopart_obj` as shown below, it will print the unique reclassifications for each `zoo_df`. This is a pretty ugly printout but work looking at the first time working with a dataset. In this example, I set `suppress_print = T` to avoid all that clutter:
+
+```{r}
+library(EcotaxaTools)
+#re classifying with names_to()
+new_obj <- ecopart_example |> 
+        add_zoo(func = names_to, col_name = 'name', new_names = c('Chaetognatha','Copepoda','Eumalacostraca','living','not-living'),
+        suppress_print = T)
+
+# just to view an example
+new_obj$zoo_files$bats361_ctd1
+
+# to see all taxa names
+new_obj |> 
+        all_taxa() |>
+        unique()
+```
+
+#### names_drop()
+To remove particular taxa/labels from the data, `names_drop()` is the most effective option. With this approach, just specify which labels should be dropped in the `drop_names` argument. There is then also the option to `drop_children`. By default it is set to `FALSE`, however if set to `TRUE`, all taxanomic children will be removed. Be cautious with this option as it is easy to remove categories unintentionally.\n
+When working with `ecopart_obj`, you'll want to use `mod_zoo()` as this will iterate `names_drop()` across all the `$zoo_files`.\n
+
+For example, many times it might be desired to remove all non-living categories:
+```{r}
+only_living <- ecopart_example |>
+        mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) #drop all non-living taxa & children
+
+only_living |> 
+        all_taxa() |>
+        unique() #print out the unique taxa - note only living remain.
+```
+
+#### names_keep()
+Alternatively, you might be interested in working with specific taxa/labels only. For this, `names_keep()` might be the better option. Functionally, it is very similar to `names_drop()`, rather it will keep the specified names rather than removing them.\n
+For example: you might be interested in only the Rhizaria taxa:
+```{r}
+Rhiz_only <- ecopart_example |>
+        mod_zoo(func = names_keep, keep_names = 'Rhizaria', keep_children = T) #trim to only have rhizaria
+
+Rhiz_only |>
+        all_taxa() |>
+        unique() #print out the unique taxa 
+```
+
+#### Re-naming can go either way:
+`names_keep()` and `names_drop()` can be used to accomplish the same task. It is situationally deterimed whether it is easier to remove names specifically or keep names specifically.
+\n
+For example:
+```{r}
+only_living <- ecopart_example |>
+        mod_zoo(func = names_keep, keep_names = 'living', keep_children = T)
+not_dead <- ecopart_example |>
+        mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T)
+
+identical(only_living, not_dead) # It is the same
+```
+
+Finally, while shown in the previous examples, I only dropped at high-level categories. However, you can be specific and list multiple labels.\n
+```{r}
+# If you only want aulospheridae, aulacantha, aulacanthidae, aulotractus, etc
+ex4 <- ecopart_example |>  
+            mod_zoo(names_keep, keep_names = c('Aulosphaeridae', 'Aulacanthidae'),
+                    keep_children = T)
+
+ex4 |>
+   all_taxa() |>
+   unique()
+
+# You can also string togehter these functions if you want to trim it more specifically
+ex5 <- ecopart_example |>
+            add_zoo(names_to, col_name = 'name',
+                    new_names = c('living', 'not-living','Copepoda','Chaetognatha',"Eumalacostraca"),
+                    suppress_print = TRUE) |>
+            mod_zoo(names_drop, drop_names = c('living', 'not-living')) #note drop_children = FALSE
+
+ex5 |>
+   all_taxa() |>
+   unique() # now we only have 3 labels.
+```
+
+### Renaming specific taxa
+It could be the case you need to re-name a particular classification. For example, if you were working with a dataset where the annotator labeled something as 'darksphere' but you want these labeled as 'feces', you'll want to re-classify this particular row without the functions described above.
+In the case you need to re-classify a particular taxa, you can rely on [`add_zoo()`]('.') and a user-supplied function. Remember that to use add_zoo() you'll need to have a function take in the `zoo_df` and return a vector (of `length==nrow(df)`).\n
+First, we can define a function for this task:
+```{r}
+darksphere_to_feces <- function(df) {
+    orig_name <- df$name #get original names
+    orig_name[which(orig_name == 'darksphere')] <- 'feces' #re-classify just those names
+    return(orig_name) #return the modified 
+}
+```
+
+Then, this function can be compatible with the `add_col()` function. However, you'll want to replace the `$name` column rather than create a new one:
+
+```{r}
+ecopart_example <- ecopart_example |>
+        add_zoo(darksphere_to_feces, 'name')
+```

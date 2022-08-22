@@ -1,0 +1,11 @@
+---
+title: list_to_tib()
+---
+
+A large portion of the `ecopart_obj` framework has lists. When there are several, similar lists it can at times be useful to mash them into a single df. This can be done with `list_to_tib()`. This function takes a list (which must have all elements of it as dataframes/tibbles) and mushes them into a tibble. This is similar to using `do.call(rbind, list)`. However, `list_to_tib()` creates a column in the tibble for the name of the list it came from.\n
+This is extremely useful for lists which have the cast name as the items.\n
+For example:
+```{r}
+library(EcotaxaTools)
+ecopart_example$zoo_files |> list_to_tib('cast')
+```

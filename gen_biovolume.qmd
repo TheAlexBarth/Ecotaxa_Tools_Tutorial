@@ -1,0 +1,16 @@
+---
+title: biovolume()
+---
+Calculating biovolume is made easy with the `biovolume()` function. This method takes in a `zoo_df` and will return a vector of biovolumes for each row. \n
+There are two ways to calculate biovolume; sphere or ellipsoid
+Finally, to calculate biovolume, you must provide a pixel-to-mm conversion ratio.
+
+```{r}
+library(EcotaxaTools)
+zoo_df <- ecopart_example$zoo_files[[1]]
+biovol <- biovolume(input = zoo_df,
+                    shape = 'ellipsoid',
+                    pixel_mm = unique(ecopart_example$meta$acq_pixel))
+
+biovol |> summary()
+```

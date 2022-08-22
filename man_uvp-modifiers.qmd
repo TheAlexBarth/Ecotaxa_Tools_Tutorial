@@ -1,0 +1,57 @@
+---
+title: Modifying Ecopart Objects
+---
+
+Modifying the zooplankton files on an ecopart object can be tricky because you need to make the same change to many dataframes (or tibbles) in a list. To accomplish this, there are two functions which work with `ecopart_obj` and `zoo_list` to manipulate them: `add_zoo()` and `mod_zoo()`.
+\n\n
+Both these functions are built over `lapply()` and have a similar syntax:\n
+The first argument is an `ecopart_obj` or `zoo_list` then the second is a function which will be applied to each `zoo_df` in the list/object. The functions compatible with `add_zoo()` and `mod_zoo()` must take a df as an input. Several EcotaxaTools functions are built intentionally so they work with these approaches. However, it will often be the case you might need to write your own function. For an example of this look at the [alternative renaming section](./man_uvp-renaming.html#Renaming-specific-taxa).
+\n\n
+The approach using `mod_zoo()` and `add_zoo()` will feel comforable for anyone who regularly uses `lapply()`. It is worth understanding how these functions both work as they are a key method for organizing `ecopart_obj`.\n
+
+### add_zoo()
+To add a new column, or replace an existing column, use `add_zoo()`. The two required arguments are `func` and `col_name` which specify the function to use and what to call the new column respectively. Additional agruments should be specified for the function being used after these are called.\n
+
+There are several reasons why it might be useful to add or replace a column. For example:\n
+#### Adding biovolume for each particle
+To add a column for each zooplankton's size you could use `add_zoo()`. Here, you can also use the `biovolume()` function from EcotaxaTools. See the details for it [here](./gen-biovolume.html)
+```{r}
+library(EcotaxaTools)
+ecopart_example <- ecopart_example |> add_zoo(func = biovolume, 
+                                              col_name = 'biovol',
+                                              shape = 'ellipsoid',
+                                              pixel_mm = unique(ecopart_example$meta$acq_pixel))
+
+ecopart_example |> 
+    get_all('biovol') |>
+    summary()
+```
+
+#### Replacing taxonomic labels.
+To replace taxonomic labels with other ones, you'll likely want to replace the 'name' column. There are several ways to do this which are explained in the [renaming page](./man_uvp-renaming.html)
+
+
+### mod_zoo()
+To selectively remove rows or summarize a `zoo_df` while still maintaining the `ecopart_obj` class, use `mod_zoo()`. Similar to `add_zoo()`, this function works like `lapply()` and takes a *func* argument. However, there is no need to name the new column because the return value should be a `zoo_df`.\n
+
+`mod_zoo()` is particularly useful for removing unwanted taxanomic categories [see examples here](./man_uvp-renaming.html#names_drop()), or other rows.
+
+For example, you could use `mod_zoo()` to select a particular depth range of observations:
+```{r}
+#First define a function for the observations:
+get_mesopelagic_obsv <- function(df) {
+    row_index <- which(df$depth_including_offset > 200 & df$depth_including_offset < 1200)
+    if(length(row_index) == 0) {
+        return(NULL)
+    }
+    return(df[row_index, ])
+}
+
+# The use the function with mod_zoo()
+midwater <- ecopart_example |> mod_zoo(func = get_mesopelagic_obsv)
+
+# observe the data:
+midwater |> 
+    get_all('depth_including_offset') |>
+    range()
+```
