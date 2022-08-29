@@ -9,7 +9,7 @@ format:
     preview-links: auto
     theme: dark
     logo: ../media/EcotaxaToolsHexLogo.png
-    css: styles.css
+    css: style.css
     footer: <https://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/>
 ---
 
@@ -73,7 +73,7 @@ my_ecopart_obj <- ecopart_import(directory_path)
 ## Package Basics with UVP
 Built-in example dataset
 ```{r}
-#| echo: TRUE
+#| echo: true
 library(EcotaxaTools)
 str(ecopart_example)
 ```
