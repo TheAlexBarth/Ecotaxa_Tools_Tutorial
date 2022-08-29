@@ -250,5 +250,40 @@
     "title": "Zooplankton Concentration",
     "section": "Calcuting biovolume concentration:",
     "text": "Calcuting biovolume concentration:\nLet’s say you were interested in getting the volumetric concentration of all copepods for a single cast:\n\ncast1_copepod_conc <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Copepoda', keep_children = T) |>\n    add_zoo(func = names_to, col_name = 'name', new_names = 'Copepoda', suppress_print = T) |>\n    add_zoo(func = biovolume, col_name = 'biovol', shape = 'ellipsoid', pixel_mm = unique(ecopart_example$meta$acq_pixel)) |>\n    uvp_zoo_conc(cast_name = 'bats361_ctd12', breaks = seq(0,500,100), \n                 func_col = 'biovol', func = sum) |>\n    bin_format()\n\ncast1_copepod_conc\n\n         db    group   conc_m3 min_d max_d  mp\n1   (0,100] Copepoda 0.3706134     0   100  50\n2 (100,200] Copepoda 0.7869312   100   200 150\n3 (200,300] Copepoda 0.0000000   200   300 250\n4 (300,400] Copepoda 0.0000000   300   400 350\n5 (400,500] Copepoda 1.6664027   400   500 450\n\n\nThere are several more options on how this feature can be used and customized for different projects. Look into the structure of bin_taxa() to futher understand this process. Additionally feel free to discuss any questions with Alex Barth."
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#first-slide",
+    "href": "quarto_pres/overview_pres.html#first-slide",
+    "title": "EcotaxaTools",
+    "section": "First Slide",
+    "text": "First Slide"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#second-slide",
+    "href": "quarto_pres/overview_pres.html#second-slide",
+    "title": "EcotaxaTools Tutorial",
+    "section": "Second Slide",
+    "text": "Second Slide\n\n\n\nhttps://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#section",
+    "href": "quarto_pres/overview_pres.html#section",
+    "title": "EcotaxaTools Tutorial",
+    "section": "",
+    "text": "{EcotaxaTools}\nA R Package for Ecotaxa & Ecopart Processing"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#a-common-language",
+    "href": "quarto_pres/overview_pres.html#a-common-language",
+    "title": "{EcotaxaTools}",
+    "section": "A Common Language",
+    "text": "A Common Language\n\n\nImage will go here\n\n\n\nCollaborative projects\nOpen science\nCommon documentation"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#considerations",
+    "href": "quarto_pres/overview_pres.html#considerations",
+    "title": "{EcotaxaTools}",
+    "section": "Considerations:",
+    "text": "Considerations:\n\n\nCode readability\nPiping |>\nEase of use\n\n\n\n\n\nhttps://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/"
   }
 ]

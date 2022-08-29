@@ -1,0 +1,27 @@
+.footer {
+    display: block;
+    position: fixed;
+    bottom: 18px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    z-index: 2;
+  }
+
+.container{
+    display: flex;
+    height: fit-content;
+}
+
+.left-block-40 {
+    float: left;
+    width: 40%;
+    height: fit-content;
+}
+
+.right-block-60 {
+    float: right;
+    width: 60%;
+    height: fit-content;
+}

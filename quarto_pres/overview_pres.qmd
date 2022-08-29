@@ -1,0 +1,120 @@
+---
+title: "{EcotaxaTools}"
+subtitle: An R Package for Ecotaxa & Ecopart Processing
+format:
+  revealjs: 
+    slide-number: false
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    theme: dark
+    logo: ../media/EcotaxaToolsHexLogo.png
+    css: styles.css
+    footer: <https://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/>
+---
+
+## A Common Language
+. . .
+<br/>
+::: columns
+::: {.column width='40%'}
+Image will go here
+:::
+::: {.column width='60%'}
+::: incremental
+- Collaborative projects
+- Open science
+- Common documentation
+:::
+:::
+:::
+
+##  Considerations:
+. . .
+::: columns
+
+::: {.column width = "60%"}
+::: incremental
+- Code readability
+- Piping `|>`
+- Ease of use
+- Compatabile across Ecotaxa-friendly tools
+
+:::
+:::
+
+::: {.column width='40%'}
+Image over here.
+:::
+:::
+
+## Current Configuration:
+ver 1.2.0.9000
+- Available on github
+- Primarily focused on the UVP
+- particularly built out for zooplankton processing
+- in "Development"
+
+## Package Basics with UVP
+::: incremental
+- Focus on raw-data export
+- A class/object structure
+- Data are contained in `ecopart_obj`
+- Three main elements: `meta`, `zoo_list`, 'par_list'
+:::
+
+## Package Basics with UVP
+#### Loading in data:
+``` r
+directory_path <- 'C:/my_data_folder' #your directory goes here
+my_ecopart_obj <- ecopart_import(directory_path)
+```
+
+## Package Basics with UVP
+Built-in example dataset
+```{r}
+#| echo: TRUE
+library(EcotaxaTools)
+str(ecopart_example)
+```
+
+## Package Basics with UVP
+::: columns
+::: {.column width='65%'}
+`ecopart_obj`
+- `zoo_list` accessed as `$zoo_files`
+- `par_list` accessed as `$par_files`
+- `meta` accessed as `meta`
+:::
+:::{.column width='35%'}
+```{mermaid}
+flowchart RL
+    subgraph ecopart_obj
+        direction RL
+        meta
+        subgraph zoo_list
+            zoo_df
+        end
+        subgraph par_list
+            par_df
+        end
+    end
+```
+:::
+:::
+
+## Package Basics
+::: columns
+::: {.column width='65%'}
+Tools:
+::: incremental
+- quick queries
+- data cleaning
+- analysis tools
+:::
+:::
+:::{.column width='35%'}
+image of tools
+:::
+
+:::
