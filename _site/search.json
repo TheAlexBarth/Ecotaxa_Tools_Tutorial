@@ -193,21 +193,21 @@
     "href": "quarto_pres/overview_pres.html#a-common-language",
     "title": "{EcotaxaTools}",
     "section": "A Common Language",
-    "text": "A Common Language\n. . .  ::: columns ::: {.column width=‘40%’} Image will go here ::: ::: {.column width=‘60%’} ::: incremental - Collaborative projects - Open science - Common documentation ::: ::: :::"
+    "text": "A Common Language\n\n\n\nImage will go here\n\n\n\nCollaborative projects\nOpen science\nCommon documentation"
   },
   {
     "objectID": "quarto_pres/overview_pres.html#considerations",
     "href": "quarto_pres/overview_pres.html#considerations",
     "title": "{EcotaxaTools}",
     "section": "Considerations:",
-    "text": "Considerations:\n. . . ::: columns\n::: {.column width = “60%”} ::: incremental - Code readability - Piping |> - Ease of use - Compatabile across Ecotaxa-friendly tools\n::: :::\n\nImage over here.\n\n:::"
+    "text": "Considerations:\n\n::: {.column width = “60%”} ::: incremental - Code readability - Piping |> - Ease of use - Compatabile across Ecotaxa-friendly tools\n\n:::\n\nImage over here.\n\n:::"
   },
   {
     "objectID": "quarto_pres/overview_pres.html#current-configuration",
     "href": "quarto_pres/overview_pres.html#current-configuration",
     "title": "{EcotaxaTools}",
     "section": "Current Configuration:",
-    "text": "Current Configuration:\nver 1.2.0.9000 - Available on github - Primarily focused on the UVP - particularly built out for zooplankton processing - in “Development”"
+    "text": "Current Configuration:\nver 1.2.0.9000\n\n\nAvailable on github\nPrimarily focused on the UVP\nparticularly built out for zooplankton processing\nin “Development”"
   },
   {
     "objectID": "quarto_pres/overview_pres.html#package-basics-with-uvp",
@@ -242,7 +242,7 @@
     "href": "quarto_pres/overview_pres.html#package-basics",
     "title": "{EcotaxaTools}",
     "section": "Package Basics",
-    "text": "Package Basics\n\n\nTools: ::: incremental - quick queries - data cleaning - analysis tools\n\n\n\nimage of tools\n\n:::\n\n\n\nhttps://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/"
+    "text": "Package Basics\n\n\nTools: :::{.incremental} - quick queries - data cleaning - analysis tools\n\n\n\nimage of tools\n\n:::\n\n\n\nhttps://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/"
   },
   {
     "objectID": "query_all-taxa.html",
@@ -334,5 +334,12 @@
     "title": "Zooplankton Concentration",
     "section": "Calcuting biovolume concentration:",
     "text": "Calcuting biovolume concentration:\nLet’s say you were interested in getting the volumetric concentration of all copepods for a single cast:\n\ncast1_copepod_conc <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Copepoda', keep_children = T) |>\n    add_zoo(func = names_to, col_name = 'name', new_names = 'Copepoda', suppress_print = T) |>\n    add_zoo(func = biovolume, col_name = 'biovol', shape = 'ellipsoid', pixel_mm = unique(ecopart_example$meta$acq_pixel)) |>\n    uvp_zoo_conc(cast_name = 'bats361_ctd12', breaks = seq(0,500,100), \n                 func_col = 'biovol', func = sum) |>\n    bin_format()\n\ncast1_copepod_conc\n\n         db    group   conc_m3 min_d max_d  mp\n1   (0,100] Copepoda 0.3706134     0   100  50\n2 (100,200] Copepoda 0.7869312   100   200 150\n3 (200,300] Copepoda 0.0000000   200   300 250\n4 (300,400] Copepoda 0.0000000   300   400 350\n5 (400,500] Copepoda 1.6664027   400   500 450\n\n\nThere are several more options on how this feature can be used and customized for different projects. Look into the structure of bin_taxa() to futher understand this process. Additionally feel free to discuss any questions with Alex Barth."
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#common-functionality",
+    "href": "quarto_pres/overview_pres.html#common-functionality",
+    "title": "{EcotaxaTools}",
+    "section": "Common Functionality",
+    "text": "Common Functionality\n\n::: {.column width = ‘50%’} ::: incremental - Relabel taxa/categories - Manage metadata & sample information - Calculate concentrations - Integrated abundance - Relative abundance - biovolume\n\n:::\n:::"
   }
 ]

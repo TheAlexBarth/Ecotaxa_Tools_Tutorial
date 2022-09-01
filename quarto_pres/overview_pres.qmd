@@ -14,23 +14,46 @@ format:
 ---
 
 ## A Common Language
-. . .
 <br/>
-::: columns
+
+::: {.columns}
+
 ::: {.column width='40%'}
 Image will go here
 :::
+
 ::: {.column width='60%'}
-::: incremental
+::: {.incremental}
 - Collaborative projects
 - Open science
 - Common documentation
 :::
 :::
+
 :::
 
+## Common Functionality
+
+::: columns
+
+::: {.column width = '50%'}
+::: incremental
+- Relabel taxa/categories
+- Manage metadata & sample information
+- Calculate concentrations
+- Integrated abundance
+- Relative abundance
+- biovolume
+:::
+:::
+
+
+:::
+
+
+
 ##  Considerations:
-. . .
+
 ::: columns
 
 ::: {.column width = "60%"}
@@ -39,24 +62,29 @@ Image will go here
 - Piping `|>`
 - Ease of use
 - Compatabile across Ecotaxa-friendly tools
-
 :::
 :::
 
 ::: {.column width='40%'}
 Image over here.
 :::
+
 :::
 
 ## Current Configuration:
+
 ver 1.2.0.9000
+
+:::{.incremental}
 - Available on github
 - Primarily focused on the UVP
 - particularly built out for zooplankton processing
 - in "Development"
+:::
 
 ## Package Basics with UVP
-::: incremental
+
+:::{.incremental}
 - Focus on raw-data export
 - A class/object structure
 - Data are contained in `ecopart_obj`
@@ -107,7 +135,7 @@ flowchart RL
 ::: columns
 ::: {.column width='65%'}
 Tools:
-::: incremental
+:::{.incremental}
 - quick queries
 - data cleaning
 - analysis tools
