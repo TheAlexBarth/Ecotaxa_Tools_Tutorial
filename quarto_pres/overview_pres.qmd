@@ -14,19 +14,20 @@ format:
 ---
 
 ## A Common Language
+
 <br/>
 
-::: {.columns}
+::: columns
 
-::: {.column width='40%'}
-Image will go here
+::: {.column width="40%"}
+![](../media/pres_img/standards.png)
 :::
 
-::: {.column width='60%'}
-::: {.incremental}
-- Collaborative projects
-- Open science
-- Common documentation
+::: {.column width="60%"}
+::: incremental
+-   Collaborative projects
+-   Open science
+-   Common test
 :::
 :::
 
@@ -34,38 +35,36 @@ Image will go here
 
 ## Common Functionality
 
+<br/>
+
 ::: columns
 
-::: {.column width = '50%'}
+::: {.column width='50%'} 
 ::: incremental
 - Relabel taxa/categories
 - Manage metadata & sample information
 - Calculate concentrations
 - Integrated abundance
 - Relative abundance
-- biovolume
+- test
 :::
 :::
 
+::: {.column width="50%"}
+Image here
+:::
 
 :::
 
-
-
-##  Considerations:
+## Considerations:
 
 ::: columns
-
-::: {.column width = "60%"}
-::: incremental
-- Code readability
-- Piping `|>`
-- Ease of use
-- Compatabile across Ecotaxa-friendly tools
-:::
+::: {.column width = "60%"} ::: incremental - Code readability - Piping `|>` - Ease of use - Compatabile across Ecotaxa-friendly tools
 :::
 
-::: {.column width='40%'}
+:::
+
+::: {.column width="40%"}
 Image over here.
 :::
 
@@ -75,31 +74,35 @@ Image over here.
 
 ver 1.2.0.9000
 
-:::{.incremental}
-- Available on github
-- Primarily focused on the UVP
-- particularly built out for zooplankton processing
-- in "Development"
+::: incremental
+-   Available on github
+-   Primarily focused on the UVP
+-   particularly built out for zooplankton processing
+-   in "Development"
 :::
 
 ## Package Basics with UVP
 
-:::{.incremental}
-- Focus on raw-data export
-- A class/object structure
-- Data are contained in `ecopart_obj`
-- Three main elements: `meta`, `zoo_list`, 'par_list'
+::: incremental
+-   Focus on raw-data export
+-   A class/object structure
+-   Data are contained in `ecopart_obj`
+-   Three main elements: `meta`, `zoo_list`, 'par_list'
 :::
 
 ## Package Basics with UVP
+
 #### Loading in data:
+
 ``` r
 directory_path <- 'C:/my_data_folder' #your directory goes here
 my_ecopart_obj <- ecopart_import(directory_path)
 ```
 
 ## Package Basics with UVP
+
 Built-in example dataset
+
 ```{r}
 #| echo: true
 library(EcotaxaTools)
@@ -107,14 +110,13 @@ str(ecopart_example)
 ```
 
 ## Package Basics with UVP
+
 ::: columns
-::: {.column width='65%'}
-`ecopart_obj`
-- `zoo_list` accessed as `$zoo_files`
-- `par_list` accessed as `$par_files`
-- `meta` accessed as `meta`
+::: {.column width="65%"}
+`ecopart_obj` - `zoo_list` accessed as `$zoo_files` - `par_list` accessed as `$par_files` - `meta` accessed as `meta`
 :::
-:::{.column width='35%'}
+
+::: {.column width="35%"}
 ```{mermaid}
 flowchart RL
     subgraph ecopart_obj
@@ -132,16 +134,14 @@ flowchart RL
 :::
 
 ## Package Basics
+
 ::: columns
-::: {.column width='65%'}
-Tools:
-:::{.incremental}
-- quick queries
-- data cleaning
-- analysis tools
+::: {.column width="65%"}
+Tools: :::{.incremental} - quick queries - data cleaning - analysis tools
 :::
 :::
-:::{.column width='35%'}
+
+::: {.column width="35%"}
 image of tools
 :::
 
