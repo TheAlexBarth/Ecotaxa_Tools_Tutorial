@@ -1,0 +1,649 @@
+---
+title: "{EcotaxaTools}"
+subtitle: An R Package for Ecotaxa & Ecopart Processing. UVP User Workshop 2022
+format:
+  revealjs: 
+    slide-number: false
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    theme: white
+    logo: ../media/EcotaxaToolsHexLogo.png
+    css: style.css
+    footer: <https://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/>
+---
+
+## A Common Language
+
+<br/>
+
+::: columns
+
+::: {.column width="40%"}
+![](../media/pres_img/language_pic.jpeg)
+:::
+
+::: {.column width="60%"}
+::: incremental
+-   Collaborative projects
+-   Common code for open science
+-   Ease-of-use
+:::
+:::
+
+:::
+
+## Current Configuration:
+
+ver 1.2.0.9000
+
+::: columns
+
+::: {.column width="30%"}
+::: incremental
+-   Available on github
+-   Primarily focused on the UVP
+-   particularly built out for zooplankton processing
+:::
+:::
+
+:::{.column width='70%'}
+![](../media/pres_img/git-screenshot.png)
+:::
+
+:::
+
+<!--- START PACKAGE BASICS SECTION --->
+
+# Package Basics {auto-animate="true"}
+
+## Package Basics with UVP {auto-animate="true"}
+
+::: columns
+
+::: {.column width='40%'}
+-   Focus on raw-data export
+
+::: incremental
+-   Files downloaded go in a directory
+-   A class/object structure to navigate R
+:::
+
+:::
+
+::: {.column width='60%'}
+
+::: {.r-stack}
+![](../media/pres_img/ecopart_export.png){.fragment fragment-index=1 .absolute}
+![](../media/pres_img/raw_directory.png){.fragment fragment-index=3 .absolute}
+:::
+
+:::
+:::
+
+## Package Basics with UVP {auto-animate="true"}
+
+::: columns
+
+::: {.column width="35%"}
+`ecopart_obj` class structure:
+:::
+
+::: {.column width="65%"}
+![](../media/pres_img/ecopart_obj_str.png)
+:::
+
+:::
+
+
+## Package Basics with UVP {auto-animate="true"}
+
+::: columns
+
+::: {.column width="35%"}
+`ecopart_obj` class structure:
+
+::: incremental
+- Applying functions across all profiles
+- Quickly summarize data
+- Requires looping
+:::
+
+:::
+
+::: {.column width="65%"}
+![](../media/pres_img/ecopart_obj_full.png)
+:::
+
+:::
+
+
+## Package Basics with UVP {auto-animate="true"}
+
+::: columns
+
+::: {.column width="50%"}
+Code Considerations:
+
+::: incremental
+- Readability
+- Minimalize dependancies
+- Pipe friendly `|>`
+- Rely on `lapply()`
+:::
+
+:::
+
+::: {.column width="50%"}
+![](../media/pres_img/thinker.png)
+:::
+
+:::
+
+
+<!--- END package basics ---->
+
+<!--- START Common Tools --->
+# Package tools {auto-animate="true"}
+
+<!--- START Package mgmt --->
+## Package tools {auto-animate="true"}
+Project management:
+
+
+## Package tools {auto-animate="true"}
+Project management:
+
+::: columns
+
+::: {.column width='45%'}
+- Quickly pull information
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/query_ex.png)
+:::
+
+
+:::
+
+## Package tools {auto-animate="true"}
+Project management:
+
+::: columns
+
+::: {.column width='45%'}
+- Quickly pull information
+- Manage metadata
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/metadata.png)
+:::
+
+
+:::
+
+
+## Package tools {auto-animate="true"}
+Project management:
+
+::: columns
+
+::: {.column width='45%'}
+- Quickly pull information
+- Manage metadata
+- Relabel categories
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/names_to.png)
+:::
+
+
+:::
+
+
+## Package tools {auto-animate="true"}
+Project management:
+
+::: columns
+
+::: {.column width='45%'}
+- Quickly pull information
+- Manage metadata
+- Relabel categories
+- Calculating Functions
+    - Biovolume
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/biovol.png)
+:::
+
+:::
+
+<!--- END Package mgmt --->
+
+<!--- START ANALYSIS TOOLS --->
+## Package tools {auto-animate="true"}
+Summary & Analysis
+
+
+## Package tools {auto-animate="true"}
+Summary & Analysis
+
+::: columns
+
+::: {.column width='45%'}
+- Relative Taxa
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/relative-abundance.png)
+:::
+
+:::
+
+## Package tools {auto-animate="true"}
+Summary & Analysis
+
+::: columns
+
+::: {.column width='45%'}
+- Relative Taxa
+- Calculate Concentrations
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/ex_profile_plot.png)
+:::
+
+:::
+
+
+## Package tools {auto-animate="true"}
+Summary & Analysis
+
+::: columns
+
+::: {.column width='45%'}
+- Relative Taxa
+- Calculate Concentrations
+- Averaging Profiles
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/ex_profile_plot.png)
+:::
+
+:::
+
+
+## Package tools {auto-animate="true"}
+Summary & Analysis
+
+::: columns
+
+::: {.column width='45%'}
+- Relative Taxa
+- Calculate Concentrations
+- Averaging Profiles
+- Depth-integration
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/ex_profile_plot.png)
+:::
+
+:::
+
+## Package tools {auto-animate="true"}
+Summary & Analysis
+
+::: columns
+
+::: {.column width='45%'}
+- Relative Taxa
+- Calculate Concentrations
+- Averaging Profiles
+- Depth-integration
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/ex_profile_plot_outline-intg.png)
+:::
+
+:::
+
+
+## Package tools {auto-animate="true"}
+Summary & Analysis
+
+::: columns
+
+::: {.column width='45%'}
+- Relative Taxa
+- Calculate Concentrations
+- Averaging Profiles
+- Depth-integration
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/ex_profile_plot-intg.png)
+:::
+
+:::
+<!--- END ANALYSIS TOOLS --->
+
+<!--- END Common Tools --->
+
+# Example Applications {auto-animate="true"}
+```{r}
+#| echo: false
+# this is code to set the project up correctly
+library(EcotaxaTools)
+
+ecopart_example <- ecopart_example |>
+        mod_zoo(names_drop, drop_names = 'darksphere', drop_children = F) |>
+        suppressWarnings()
+```
+
+## Case 1: {auto-animate="true"}
+
+<br/><br/>
+
+### Goal: Get relative abundance of key living taxa
+
+## Case 1: {auto-animate="true"}
+Start with an ecopart_obj
+``` {.r}
+rel_data <- ecopart_example
+```
+
+
+## Case 1: {auto-animate="true"}
+1. Drop non-living
+``` {.r}
+rel_data <- ecopart_example |>
+    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>
+```
+
+## Case 1: {auto-animate="true"}
+2. Relabel remaining taxa
+``` {.r code-line-numbers='3-6'}
+rel_data <- ecopart_example |>
+    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>
+    add_zoo(func = names_to, 
+            new_names = c('Copepoda', 'Eumalacostraca','Chaetognatha', 'Rhizaria',
+                          'Crustacea','Trichodesmium', 'living'),
+            suppress_print = T) |>
+```
+
+## Case 1: {auto-animate="true"}
+3. Merge all casts
+``` {.r code-line-numbers="7"}
+rel_data <- ecopart_example |>
+    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>
+    add_zoo(func = names_to, 
+            new_names = c('Copepoda', 'Eumalacostraca','Chaetognatha', 'Rhizaria',
+                          'Crustacea','Trichodesmium', 'living'),
+            suppress_print = T) |>
+    merge_casts(name_map = list(all_casts = ecopart_example$meta$profileid)) |>
+```
+
+## Case 1: {auto-animate="true"}
+4. Calculate relative data
+``` {.r code-line-numbers="8"}
+rel_data <- ecopart_example |>
+    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>
+    add_zoo(func = names_to,
+            new_names = c('Copepoda', 'Eumalacostraca','Chaetognatha', 'Rhizaria',
+                          'Crustacea','Trichodesmium', 'living'),
+            suppress_print = T) |>
+    merge_casts(name_map = list(all_casts = ecopart_example$meta$profileid)) |>
+    rel_taxa()
+```
+
+## Case 1: {auto-animate="true" .scrollable}
+
+::: {.panel-tabset}
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+rel_data <- ecopart_example |>
+    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>
+    add_zoo(func = names_to, col_name = 'name', 
+            new_names = c('Copepoda', 'Eumalacostraca','Chaetognatha', 'Rhizaria',
+                          'Crustacea','Trichodesmium', 'living'),
+            suppress_print = T) |>
+    merge_casts(name_map = list(all_casts = ecopart_example$meta$profileid)) |>
+    rel_taxa()
+```
+
+### Data
+
+```{r}
+#| echo: false
+rel_data[[1]][order(rel_data[[1]]$rel_abundance, decreasing = T),] |> 
+    knitr::kable()
+```
+
+### Plot
+
+```{r}
+rel_plot <- rel_data$all_casts
+
+rel_plot$taxa <- factor(rel_plot$taxa,
+                        levels = rel_plot$taxa[order(rel_plot$rel_abundance, decreasing = T)])
+
+library(ggplot2)
+ggplot(rel_plot) +
+    geom_bar(aes(x = taxa, y = rel_abundance, fill = taxa),
+             stat = 'identity')+
+    labs(x = "", y = "Proportional Abundance", fill = "")+
+    theme_minimal()+
+    scale_fill_manual(values = gg_cbb_col(length(unique(rel_plot$taxa))+1)[-1])+
+    theme(axis.text.x = element_text(angle = 45, face = 'bold', size = 12,
+                                     hjust = .5, vjust = .5),
+          axis.title.y = element_text(face = 'bold', size = 18),
+          panel.grid = element_blank(),
+          axis.line = element_line(color = 'black'))
+```
+
+:::
+
+
+## Case 2: {auto-animate="true}
+
+<br/><br/>
+
+### Goal: Calculate depth-integrated biovolume of rhizaria taxa
+
+## Case 2: {auto-animate="true"}
+1. Keep only rhizaria
+```{.r code-line-numbers="2"}
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+```
+
+## Case 2: {auto-animate="true"}
+2. Relabel to new groups
+```{.r code-line-numbers="4"}
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', 
+            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+```
+## Case 2: {auto-animate="true"}
+3. Calculate zooplankton concentration
+```{.r code-line-numbers="6-8"}
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', 
+            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
+                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                breaks = seq(0,1200,25)) |>
+```
+## Case 2: {auto-animate="true"}
+4. Average by station
+```{.r code-line-numbers="9-11"}
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', 
+            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
+                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                breaks = seq(0,1200,25)) |>
+    average_casts(name_map = list(
+        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
+        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'))) |>
+```
+
+
+
+## Case 2: {auto-animate="true"}
+5. Integrate casts
+```{.r code-line-numbers="12"}
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', 
+            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
+                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                breaks = seq(0,1200,25)) |>
+    average_casts(name_map = list(
+        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
+        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'))) |>
+    lapply(integrate_all, need_format = T, subdivisions=1000L) |>
+    lapply(intg_to_tib)
+```
+
+
+
+## Case 2: {auto-animate="true" .scrollable}
+
+::: {.panel-tabset}
+### Code
+
+```{r}
+#| echo: true
+#| eval: true
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', 
+            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
+                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                breaks = seq(0,1200,25)) |>
+    average_casts(name_map = list(
+        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
+        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'))) |>
+    lapply(integrate_all, need_format = T, subdivisions=1000L) |>
+    lapply(intg_to_tib)
+```
+
+### Data
+
+```{r}
+#| echo: false
+library(knitr)
+integrated_rhiz$station_A <- rbind(integrated_rhiz$station_A, data.frame(taxa = c('Acantharea', 'Rhizaria'),
+                                                                         intg = c(0,0)))
+integrated_rhiz <- integrated_rhiz |> list_to_tib('station')
+
+kable(integrated_rhiz)
+```
+
+### Plot
+
+```{r}
+integrated_rhiz |> ggplot() +
+    geom_bar(aes(x = taxa, y = intg, fill = station),
+             position = 'dodge', stat = 'identity')+
+    scale_fill_manual(values = gg_cbb_col(2)) +
+    scale_y_continuous(expand = c(0,0)) +
+    labs(x = "", fill = "", y = "Depth-Integrated Biovolume") +
+    theme_minimal()+
+    theme(axis.text.x = element_text(angle = 45, face = 'bold',size = 12,
+                                    hjust = .5, vjust = .5),
+        axis.title.y = element_text(face = 'bold', size = 18),
+        panel.grid = element_blank(),
+        axis.line = element_line(color = 'black'))
+```
+
+:::
+
+
+## See for yourself!
+::: {style="text-align: center; margin-top: 1em"}
+[Ecotaxa Tools Tutorial](https://thealexbarth.github.io/Ecotaxa_Tools_Tutorial){preview-link="true" style="text-align: center"}
+:::
+
+# Future Directions:
+
+## Future:
+
+<br/>
+
+::: columns
+
+::: {.column width='45%'}
+- Expand tools & scope
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/tools.png)
+:::
+
+:::
+
+
+## Future:
+
+<br/>
+
+::: columns
+
+::: {.column width='45%'}
+- Expand tools & scope
+- Speed up functions
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/tool-time.png)
+:::
+
+:::
+
+## Future:
+
+<br/>
+
+::: columns
+
+::: {.column width='45%'}
+- Expand tools & scope
+- Speed up functions
+- Collaborate
+:::
+
+::: {.column width='55%'}
+![](../media/pres_img/tool-time-talk.png)
+:::
+
+:::
+
+
+## Contact Me:
+- AB93@email.sc.edu
+- Twitter: @TheAlexBarth
+- Web: theAlexBarth.github.io

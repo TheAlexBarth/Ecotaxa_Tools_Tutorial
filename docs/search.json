@@ -88,7 +88,7 @@
     "href": "index.html",
     "title": "Ecotaxa Tools Guide",
     "section": "",
-    "text": "EcotaxaTools is an R package I developed to easily manage and analyze output from the ecotaxa website. Check out the github page for EcotaxaTools here.\nThe project is under current development so check back frequently. You can read the updates tab for new information here.\nThe current build (ver 1.2.0.9000) is primarily for UVP and ecopart data processing. However, there is some functionality which will be useful with the zoo_scan or other standard ecotaxa .tsv files."
+    "text": "EcotaxaTools is an R package I developed to easily manage and analyze output from the ecotaxa website. Check out the github page for EcotaxaTools here.\nThe project is under current development so check back frequently. You can read the updates tab for new information here.\nThe current build (ver 1.2.0.9000) is primarily for UVP and ecopart data processing. However, there is some functionality which will be useful with the zoo_scan or other standard ecotaxa .tsv files.\n\n\n</div>\n<div id=\"quarto-navigation-envelope\" class=\"hidden\">\n<p><span class=\"hidden\" data-render-id=\"quarto-int-sidebar-title\">EcotaxaTools Tutorial</span> <span class=\"hidden\" data-render-id=\"quarto-int-navbar-title\">EcotaxaTools Tutorial</span> <span class=\"hidden\" data-render-id=\"quarto-int-next\">Updates</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-1\">Main</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/index.html\">Ecotaxa Tools Guide</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/info_updates-page.html\">Updates</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-2\">UVP &amp; Ecopart Data Processing</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/info_uvp_general-layout.html\">UVP General Structure</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-3\">Web Export / R Import</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/export_UVP_ecopart-export.html\">Exporting Ecopart Data</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/import_UVP_ecopart_import.html\">Importing UVP Data From Ecopart Export</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-4\">Querying Ecopart Objects</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/query_all-taxa.html\">all_taxa()</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/query_get-all.html\">get_all()</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-5\">Manipulating Zoo Files</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/man_uvp-modifiers.html\">Modifying Ecopart Objects</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/man_uvp-renaming.html\">Re-naming taxa in zoo files</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/man_uvp-split-obj.html\">Splitting an ecopart_obj</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/man_uvp-merge-casts.html\">Merging casts</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-6\">Analysis Tools</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/uvp_par-concentration.html\">Particle Concentration</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/uvp_zoo-concentration.html\">Zooplankton Concentration</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/uvp_avg-concentration.html\">Averaging Concentration</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/uvp_integrate.html\">Depth-integration</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-7\">General Use Functions</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/gen_biovolume.html\">biovolume()</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/gen_rel-taxa.html\">Relative Abundance</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/gen_bin-taxa.html\">bin_taxa()</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-8\">Helper Functions</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:/help_list-to-tib.html\">list_to_tib()</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:quarto-sidebar-section-9\">Made By:</span> <span class=\"hidden\" data-render-id=\"quarto-int-sidebar:https://thealexbarth.github.io\">Alex Barth</span></p>\n</div>\n<div id=\"quarto-meta-markdown\" class=\"hidden\">\n<p><span class=\"hidden\" data-render-id=\"quarto-metatitle\">EcotaxaTools Tutorial - Ecotaxa Tools Guide</span> <span class=\"hidden\" data-render-id=\"quarto-twittercardtitle\">EcotaxaTools Tutorial - Ecotaxa Tools Guide</span> <span class=\"hidden\" data-render-id=\"quarto-ogcardtitle\">EcotaxaTools Tutorial - Ecotaxa Tools Guide</span> <span class=\"hidden\" data-render-id=\"quarto-metasitename\">EcotaxaTools Tutorial</span></p>\n</div>\n\n</main> <!-- /main -->\n<script id = \"quarto-html-after-body\" type=\"application/javascript\">\nwindow.document.addEventListener(\"DOMContentLoaded\", function (event) {\n  const toggleBodyColorMode = (bsSheetEl) => {\n    const mode = bsSheetEl.getAttribute(\"data-mode\");\n    const bodyEl = window.document.querySelector(\"body\");\n    if (mode === \"dark\") {\n      bodyEl.classList.add(\"quarto-dark\");\n      bodyEl.classList.remove(\"quarto-light\");\n    } else {\n      bodyEl.classList.add(\"quarto-light\");\n      bodyEl.classList.remove(\"quarto-dark\");\n    }\n  }\n  const toggleBodyColorPrimary = () => {\n    const bsSheetEl = window.document.querySelector(\"link#quarto-bootstrap\");\n    if (bsSheetEl) {\n      toggleBodyColorMode(bsSheetEl);\n    }\n  }\n  toggleBodyColorPrimary();  \n  const icon = \"\";\n  const anchorJS = new window.AnchorJS();\n  anchorJS.options = {\n    placement: 'right',\n    icon: icon\n  };\n  anchorJS.add('.anchored');\n  const clipboard = new window.ClipboardJS('.code-copy-button', {\n    target: function(trigger) {\n      return trigger.previousElementSibling;\n    }\n  });\n  clipboard.on('success', function(e) {\n    // button target\n    const button = e.trigger;\n    // don't keep focus\n    button.blur();\n    // flash \"checked\"\n    button.classList.add('code-copy-button-checked');\n    var currentTitle = button.getAttribute(\"title\");\n    button.setAttribute(\"title\", \"Copied!\");\n    setTimeout(function() {\n      button.setAttribute(\"title\", currentTitle);\n      button.classList.remove('code-copy-button-checked');\n    }, 1000);\n    // clear code selection\n    e.clearSelection();\n  });\n  function tippyHover(el, contentFn) {\n    const config = {\n      allowHTML: true,\n      content: contentFn,\n      maxWidth: 500,\n      delay: 100,\n      arrow: false,\n      appendTo: function(el) {\n          return el.parentElement;\n      },\n      interactive: true,\n      interactiveBorder: 10,\n      theme: 'quarto',\n      placement: 'bottom-start'\n    };\n    window.tippy(el, config); \n  }\n  const noterefs = window.document.querySelectorAll('a[role=\"doc-noteref\"]');\n  for (var i=0; i<noterefs.length; i++) {\n    const ref = noterefs[i];\n    tippyHover(ref, function() {\n      // use id or data attribute instead here\n      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');\n      try { href = new URL(href).hash; } catch {}\n      const id = href.replace(/^#\\/?/, \"\");\n      const note = window.document.getElementById(id);\n      return note.innerHTML;\n    });\n  }\n  var bibliorefs = window.document.querySelectorAll('a[role=\"doc-biblioref\"]');\n  for (var i=0; i<bibliorefs.length; i++) {\n    const ref = bibliorefs[i];\n    const cites = ref.parentNode.getAttribute('data-cites').split(' ');\n    tippyHover(ref, function() {\n      var popup = window.document.createElement('div');\n      cites.forEach(function(cite) {\n        var citeDiv = window.document.createElement('div');\n        citeDiv.classList.add('hanging-indent');\n        citeDiv.classList.add('csl-entry');\n        var biblioDiv = window.document.getElementById('ref-' + cite);\n        if (biblioDiv) {\n          citeDiv.innerHTML = biblioDiv.innerHTML;\n        }\n        popup.appendChild(citeDiv);\n      });\n      return popup.innerHTML;\n    });\n  }\n});\n</script>\n</div> <!-- /content -->\n\n</body>\n\n</html>"
   },
   {
     "objectID": "info_general_ecotaxa-tsv-description.html",
@@ -130,7 +130,7 @@
     "href": "info_uvp_general-layout.html",
     "title": "UVP General Structure",
     "section": "",
-    "text": "ecopart_obj\n\n\n\nmeta\n\n\n\nzoo_list\n\n\n\nzoo_df\n\n\n\npar_list\n\n\n\npar_df\n\n\n\n\n\n\n\nThere are several main functions which can operate on the ecopart_obj for organizing data. These are referred to as querying, adding, modifying, and analysis functions. The first three are for manipulating and organizing an ecopart_obj. Analysis functions are used to take an ecopart_obj and transform it into new data structures and other analysis tools.\nThese functions are explained below:\n\nQuerying functions:\nThere functions are to get quick information from an ecopart objects\n\n\nAdding Functions:\nThese will add a column to all zoo_df files. However, they do not remove any data from the original data.\n\n\nModifying Functions:\nThese will modify the ecopart_obj and return a new ecopart_obj. These modify the data in some new way.\n\n\nAnalysis Functions:\nThese functions take an ecopart_obj and will produce new data structures with summary data. These are the link to most analysis products."
+    "text": "flowchart RL\n    subgraph ecopart_obj\n        direction RL\n        meta\n        subgraph zoo_list\n            zoo_df\n        end\n        subgraph par_list\n            par_df\n        end\n    end\n\n\n\n\n\n\n\n\nThere are several main functions which can operate on the ecopart_obj for organizing data. These are referred to as querying, adding, modifying, and analysis functions. The first three are for manipulating and organizing an ecopart_obj. Analysis functions are used to take an ecopart_obj and transform it into new data structures and other analysis tools.\nThese functions are explained below:\n\nQuerying functions:\nThere functions are to get quick information from an ecopart objects\n\n\nAdding Functions:\nThese will add a column to all zoo_df files. However, they do not remove any data from the original data.\n\n\nModifying Functions:\nThese will modify the ecopart_obj and return a new ecopart_obj. These modify the data in some new way.\n\n\nAnalysis Functions:\nThese functions take an ecopart_obj and will produce new data structures with summary data. These are the link to most analysis products."
   },
   {
     "objectID": "man_uvp-merge-casts.html",
@@ -159,6 +159,671 @@
     "title": "Splitting an ecopart_obj",
     "section": "",
     "text": "library(EcotaxaTools)\nsplit_objs <- ecopart_example |>\n    split_ecopart_obj(split_by = 'stationid')\n# this will produce 3 ecopart_objs\nnames(split_objs)\n\n[1] \"gf\" \"xx\" \"hs\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#a-common-language",
+    "href": "quarto_pres/overview_pres.html#a-common-language",
+    "title": "{EcotaxaTools}",
+    "section": "A Common Language",
+    "text": "A Common Language\n\n\n\n\n\n\n\nCollaborative projects\nEase-of-use\nCommon code for open science"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#common-toolkit",
+    "href": "quarto_pres/overview_pres.html#common-toolkit",
+    "title": "{EcotaxaTools}",
+    "section": "Common Toolkit",
+    "text": "Common Toolkit\nEasily replicate tasks in a few lines of code:\n\n\n\nRelabel taxa/categories"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#common-toolkit-1",
+    "href": "quarto_pres/overview_pres.html#common-toolkit-1",
+    "title": "{EcotaxaTools}",
+    "section": "Common Toolkit",
+    "text": "Common Toolkit\nEasily replicate tasks in a few lines of code:\n\n\n\nRelabel taxa/categories\nManage metadata"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#common-toolkit-2",
+    "href": "quarto_pres/overview_pres.html#common-toolkit-2",
+    "title": "{EcotaxaTools}",
+    "section": "Common Toolkit",
+    "text": "Common Toolkit\nEasily replicate tasks in a few lines of code:\n\n\n\nRelabel taxa/categories\nManage metadata\nCalculate concentrations\nIntegrated abundance"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#common-toolkit-3",
+    "href": "quarto_pres/overview_pres.html#common-toolkit-3",
+    "title": "{EcotaxaTools}",
+    "section": "Common Toolkit",
+    "text": "Common Toolkit\nEasily replicate tasks in a few lines of code:\n\n\n\nRelabel taxa/categories\nManage metadata\nCalculate concentrations\nIntegrated abundance\nRelative abundance"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#common-toolkit-4",
+    "href": "quarto_pres/overview_pres.html#common-toolkit-4",
+    "title": "{EcotaxaTools}",
+    "section": "Common Toolkit",
+    "text": "Common Toolkit\nEasily replicate tasks in a few lines of code:\n\n\n\nRelabel taxa/categories\nManage metadata\nCalculate concentrations\nIntegrated abundance\nRelative abundance\nbiovolume"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#considerations",
+    "href": "quarto_pres/overview_pres.html#considerations",
+    "title": "{EcotaxaTools}",
+    "section": "Considerations:",
+    "text": "Considerations:\n\n\n\n\n\nCode readability\nPiping |>\nEase of use\nCompatabile across Ecotaxa-friendly tools\n\n\n\n\n\ndata |> \n    func() |>\n    next_func() |>\n    next_func()"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#current-configuration",
+    "href": "quarto_pres/overview_pres.html#current-configuration",
+    "title": "{EcotaxaTools}",
+    "section": "Current Configuration:",
+    "text": "Current Configuration:\nver 1.2.0.9000\n\n\n\n\nAvailable on github\nPrimarily focused on the UVP\nparticularly built out for zooplankton processing"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#package-basics-with-uvp",
+    "href": "quarto_pres/overview_pres.html#package-basics-with-uvp",
+    "title": "{EcotaxaTools}",
+    "section": "Package Basics with UVP",
+    "text": "Package Basics with UVP\n\n\n\nFocus on raw-data export\n\n\n\nFiles downloaded go in a directory\nA class/object structure to navigate R"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#package-basics-with-uvp-1",
+    "href": "quarto_pres/overview_pres.html#package-basics-with-uvp-1",
+    "title": "{EcotaxaTools}",
+    "section": "Package Basics with UVP",
+    "text": "Package Basics with UVP\nLoading in data:\n\ndirectory_path <- 'C:/my_data_folder' #your directory goes here\necopart_example <- ecopart_import(directory_path)"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#package-basics-with-uvp-2",
+    "href": "quarto_pres/overview_pres.html#package-basics-with-uvp-2",
+    "title": "{EcotaxaTools}",
+    "section": "Package Basics with UVP",
+    "text": "Package Basics with UVP\nLoading in data:\n\ndirectory_path <- 'C:/my_data_folder' #your directory goes here\necopart_example <- ecopart_import(directory_path)\n\n\nBuilt-in example dataset\n\nlibrary(EcotaxaTools)\nnames(ecopart_example)\n\n[1] \"par_files\" \"zoo_files\" \"meta\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#package-basics-with-uvp-3",
+    "href": "quarto_pres/overview_pres.html#package-basics-with-uvp-3",
+    "title": "{EcotaxaTools}",
+    "section": "Package Basics with UVP",
+    "text": "Package Basics with UVP\n\n\necopart_obj class structure:\n\nzoo_list accessed as $zoo_files\npar_list accessed as $par_files\nmeta accessed as meta"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#querying-data-1",
+    "href": "quarto_pres/overview_pres.html#querying-data-1",
+    "title": "{EcotaxaTools}",
+    "section": "Querying data:",
+    "text": "Querying data:\nQuickly pull information about your dataset:"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#querying-data-2",
+    "href": "quarto_pres/overview_pres.html#querying-data-2",
+    "title": "{EcotaxaTools}",
+    "section": "Querying data:",
+    "text": "Querying data:\nQuickly pull information about your dataset:\nall_taxa()\n\necopart_example |>\n    all_taxa() |>\n    unique()"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#querying-data-3",
+    "href": "quarto_pres/overview_pres.html#querying-data-3",
+    "title": "{EcotaxaTools}",
+    "section": "Querying data:",
+    "text": "Querying data:\nQuickly pull information about your dataset:\nall_taxa()\n\necopart_example |>\n    all_taxa() |>\n    unique()\n\n [1] \"detritus\"                \"badfocus<artefact\"      \n [3] \"light<detritus\"          \"solitaryglobule\"        \n [5] \"tuff\"                    \"Eumalacostraca\"         \n [7] \"feces\"                   \"fiber<detritus\"         \n [9] \"Copepoda\"                \"Aulacanthidae\"          \n[11] \"puff\"                    \"Collodaria\"             \n[13] \"duplicate\"               \"Chaetognatha\"           \n[15] \"other<living\"            \"Rhizaria\"               \n[17] \"colonial<Rhizaria\"       \"Acantharea\"             \n[19] \"Aulosphaeridae\"          \"darksphere\"             \n[21] \"Ostracoda\"               \"Aulacantha\"             \n[23] \"Coelographis\"            \"Eucalanidae\"            \n[25] \"head<Chaetognatha\"       \"Castanellidae\"          \n[27] \"Coelodendridae\"          \"Actinopterygii\"         \n[29] \"Phaeodaria\"              \"temp circle\"            \n[31] \"tail<Chaetognatha\"       \"house\"                  \n[33] \"Crustacea\"               \"Foraminifera\"           \n[35] \"Medusettidae\"            \"Cnidaria<Hydrozoa\"      \n[37] \"Cnidaria<Metazoa\"        \"solitaryblack\"          \n[39] \"Pteropoda\"               \"Coelodendrum\"           \n[41] \"Ctenophora<Metazoa\"      \"colonial<Aulosphaeridae\"\n[43] \"Aulatractus\"             \"Alciopidae\"             \n[45] \"Pelagia\"                 \"artefact\"               \n[47] \"Siphonophorae\"           \"bubble\"                 \n[49] \"Poeobius\"                \"Annelida\"               \n[51] \"Cannosphaeridae\"         \"Salpida\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#querying-data-4",
+    "href": "quarto_pres/overview_pres.html#querying-data-4",
+    "title": "{EcotaxaTools}",
+    "section": "Querying data:",
+    "text": "Querying data:\nQuickly pull information about your dataset:\nget_all()"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#querying-data-5",
+    "href": "quarto_pres/overview_pres.html#querying-data-5",
+    "title": "{EcotaxaTools}",
+    "section": "Querying data:",
+    "text": "Querying data:\nQuickly pull information about your dataset:\nget_all() - depth information\n\necopart_example |>\n    get_all('depth_including_offset') |>\n    range()\n\n[1]    2.9 3499.9"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#querying-data-6",
+    "href": "quarto_pres/overview_pres.html#querying-data-6",
+    "title": "{EcotaxaTools}",
+    "section": "Querying data:",
+    "text": "Querying data:\nQuickly pull information about your dataset:\nget_all() - size ranges\n\necopart_example |>\n    get_all('esd') |>\n    summary() * unique(ecopart_example$meta$acq_pixel)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n 0.9343  1.0381  1.1560  1.4124  1.4196 50.7051"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling",
+    "href": "quarto_pres/overview_pres.html#data-wrangling",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nProject management\nSplitting a project:\n\nsplit_proj <- ecopart_example |>\n    split_ecopart_obj(split_by = ) # corresponding metadata column"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-1",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-1",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nProject management\nSplitting a project:\n\nsplit_proj <- ecopart_example |>\n    split_ecopart_obj(split_by = 'stationid') # corresponding metadata column\n\nnames(split_proj)\n\n[1] \"gf\" \"xx\" \"hs\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-2",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-2",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nProject management\nMerging Casts"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-3",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-3",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nProject management\nMerging Casts\n\n# define a map to name casts:\n#merging casts based on station:\nname_map = list(\n    'gf' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid == 'gf')],\n    'other' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid != 'gf')]\n)"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-4",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-4",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nProject management\nMerging Casts\n\n# define a map to name casts:\n#merging casts based on station:\nname_map = list(\n    'gf' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid == 'gf')],\n    'other' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid != 'gf')]\n)\n\nmerged_obj <- ecopart_example |>\n    merge_casts(name_map = name_map)\n# now there's only two aggregate casts:\nnames(merged_obj$par_files)\n\n[1] \"gf\"    \"other\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-5",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-5",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nHands-on tasks\n\n\n\n\nFunctions must be iterated over all profiles\nadd_zoo() adds a new column\nmod_zoo() trims rows"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-6",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-6",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nadd_zoo(): add a column\n\necopart_example <- ecopart_example |> \n    add_zoo(func = biovolume, ## Defined function\n            col_name = 'biovol', ## New column name\n            #additional arguments passed to the function:"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-7",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-7",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nadd_zoo(): add a column\n\necopart_example <- ecopart_example |> \n    add_zoo(func = biovolume, ## Defined function\n            col_name = 'biovol', ## New column name\n            #additional arguments passed to the function:\n            shape = 'ellipsoid',\n            pixel_mm = unique(ecopart_example$meta$acq_pixel))"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-8",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-8",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nadd_zoo(): add a column\n\necopart_example <- ecopart_example |> \n    add_zoo(func = biovolume, ## Defined function\n            col_name = 'biovol', ## New column name\n            #additional arguments passed to the function:\n            shape = 'ellipsoid',\n            pixel_mm = unique(ecopart_example$meta$acq_pixel))\n\necopart_example |> \n    get_all('biovol') |> \n    range()\n\n[1] 9.194251e-02 4.753085e+04"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-9",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-9",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nmod_zoo(): modify rows\n\n# defining a function for row selection:\n\n# apply that function to the object\nmeso_zoops <- ecopart_example |>\n    mod_zoo(\n        #specify funciton here\n    )"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-10",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-10",
+    "title": "{EcotaxaTools}",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling\nmod_zoo(): modify rows\n\n# defining a function for row selection:\nget_mesopelagic_obsv <- function(df) {\n    row_index <- which(df$depth_including_offset > 200 & df$depth_including_offset < 1200)\n    if(length(row_index) == 0) {\n        return(NULL)\n    }\n    return(df[row_index, ])\n}\n\n# apply that function to the object\nmeso_zoops <- ecopart_example |>\n    mod_zoo(\n        func = get_mesopelagic_obsv\n    )"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-re-naming-1",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-re-naming-1",
+    "title": "{EcotaxaTools}",
+    "section": "Data wrangling: re-naming",
+    "text": "Data wrangling: re-naming\nnames_to() - moving up the taxonomic hierarcy:\n\nnew_names = c('Copepoda','Eumalacostraca','Rhizaria','living','not-living')\n\nsimple_names <- ecopart_example |>\n    add_zoo(\n         #use add_zoo to wrap to all profiles \n    )"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-re-naming-2",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-re-naming-2",
+    "title": "{EcotaxaTools}",
+    "section": "Data wrangling: re-naming",
+    "text": "Data wrangling: re-naming\nnames_to() - moving up the taxonomic hierarcy:\n\nnew_names = c('Copepoda','Eumalacostraca','Rhizaria','living','not-living')\n\nsimple_names <- ecopart_example |>\n    add_zoo(\n        func = names_to,\n        col_name = 'name',\n        new_names = new_names,\n        suppress_print = T\n    )"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-re-naming-3",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-re-naming-3",
+    "title": "{EcotaxaTools}",
+    "section": "Data wrangling: re-naming",
+    "text": "Data wrangling: re-naming\nnames_to() - moving up the taxonomic hierarcy:\n\nnew_names = c('Copepoda','Eumalacostraca','Rhizaria','living','not-living')\n\nsimple_names <- ecopart_example |>\n    add_zoo(\n        func = names_to,\n        col_name = 'name',\n        new_names = new_names,\n        suppress_print = T\n    ) \n\nsimple_names |>\n    all_taxa() |>\n    unique()\n\n[1] \"not-living\"     \"Rhizaria\"       \"living\"         \"Eumalacostraca\"\n[5] \"Copepoda\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-re-naming-4",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-re-naming-4",
+    "title": "{EcotaxaTools}",
+    "section": "Data wrangling: re-naming",
+    "text": "Data wrangling: re-naming\nnames_drop() - drop categories\n\n# drop all detritus taxa:"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-re-naming-5",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-re-naming-5",
+    "title": "{EcotaxaTools}",
+    "section": "Data wrangling: re-naming",
+    "text": "Data wrangling: re-naming\nnames_drop() - drop categories\n\n# drop all detritus taxa:\nonly_living <- ecopart_example |>\n        mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T)"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-re-naming-6",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-re-naming-6",
+    "title": "{EcotaxaTools}",
+    "section": "Data wrangling: re-naming",
+    "text": "Data wrangling: re-naming\nnames_keep() - keep select categories\n\nrhiz_taxa <- ecopart_example |>\n    mod_zoo(func = names_keep, keep_names = 'Rhizaria', keep_children = T)"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#data-wrangling-re-naming-7",
+    "href": "quarto_pres/overview_pres.html#data-wrangling-re-naming-7",
+    "title": "{EcotaxaTools}",
+    "section": "Data wrangling: re-naming",
+    "text": "Data wrangling: re-naming\nnames_keep() - keep select categories\n\nrhiz_taxa <- ecopart_example |>\n    mod_zoo(func = names_keep, keep_names = 'Rhizaria', keep_children = T)\n\nrhiz_taxa |>\n    all_taxa() |>\n    unique()\n\n [1] \"solitaryglobule\"         \"Aulacanthidae\"          \n [3] \"Collodaria\"              \"Rhizaria\"               \n [5] \"colonial<Rhizaria\"       \"Acantharea\"             \n [7] \"Aulosphaeridae\"          \"Aulacantha\"             \n [9] \"Coelographis\"            \"Castanellidae\"          \n[11] \"Coelodendridae\"          \"Phaeodaria\"             \n[13] \"Foraminifera\"            \"Medusettidae\"           \n[15] \"solitaryblack\"           \"Coelodendrum\"           \n[17] \"colonial<Aulosphaeridae\" \"Aulatractus\"            \n[19] \"Cannosphaeridae\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-1",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-1",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nParticle Concentration"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-2",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-2",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nParticle Concentration\n\n\n\n\npar_conc <- ecopart_example |> \n    uvp_par_conc(bin_limits = c(.1,.25,1,2))\n\n\n\n# A tibble: 76,800 × 4\n   depth par_conc esd_bin    cast        \n   <dbl>    <dbl> <chr>      <chr>       \n 1     3    0.169 (0.1,0.25] bats361_ctd1\n 2     4    0.199 (0.1,0.25] bats361_ctd1\n 3     5    0.170 (0.1,0.25] bats361_ctd1\n 4     6    0.178 (0.1,0.25] bats361_ctd1\n 5     7    0.252 (0.1,0.25] bats361_ctd1\n 6     8    0.231 (0.1,0.25] bats361_ctd1\n 7     9    0.240 (0.1,0.25] bats361_ctd1\n 8    10    0.281 (0.1,0.25] bats361_ctd1\n 9    11    0.237 (0.1,0.25] bats361_ctd1\n10    12    0.332 (0.1,0.25] bats361_ctd1\n# … with 76,790 more rows"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-3",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-3",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nParticle Concentraitons:\nQuick graphs:\n\n\n\n[1] \"Enjoy the plots!\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-4",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-4",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nZooplankton Concentration:\n\nzoo_conc <- simple_names  |>\n    uvp_zoo_conc(\n\n    )"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-5",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-5",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nZooplankton Concentration:\n\nzoo_conc <- simple_names  |>\n    uvp_zoo_conc(\n        cast_name = 'bats361_ctd9', #optional\n        breaks = c(0,200,500,1200)\n    )"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-6",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-6",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nZooplankton Concentration:\n\nzoo_conc <- simple_names  |>\n    uvp_zoo_conc(\n        cast_name = 'bats361_ctd9', #optional\n        breaks = c(0,200,500,1200)\n    )\n\nzoo_conc\n\n              db          group    conc_m3\n1        (0,200]       Copepoda  1.1469370\n2        (0,200] Eumalacostraca  0.1433671\n3        (0,200]         living  6.5948875\n4        (0,200]     not-living 66.9524451\n5        (0,200]       Rhizaria  2.1505068\n6      (200,500]       Copepoda  1.0349690\n7      (200,500] Eumalacostraca  0.1293711\n8      (200,500]         living  5.3042162\n9      (200,500]     not-living 15.5245352\n10     (200,500]       Rhizaria  0.5174845\n11 (500,1.2e+03]       Copepoda  0.9251264\n12 (500,1.2e+03]         living  5.0111015\n13 (500,1.2e+03]     not-living 15.5729616\n14 (500,1.2e+03]       Rhizaria  1.4647835\n15 (500,1.2e+03] Eumalacostraca  0.0000000"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-7",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-7",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nZooplankton Concentration:\n\nzoo_conc <- simple_names  |>\n    uvp_zoo_conc(\n        cast_name = 'bats361_ctd9', #optional\n        breaks = c(0,200,500,1200)\n    )\n\nzoo_conc |> bin_format()\n\n              db          group    conc_m3 min_d max_d  mp\n1        (0,200]       Copepoda  1.1469370     0   200 100\n2        (0,200] Eumalacostraca  0.1433671     0   200 100\n3        (0,200]         living  6.5948875     0   200 100\n4        (0,200]     not-living 66.9524451     0   200 100\n5        (0,200]       Rhizaria  2.1505068     0   200 100\n6      (200,500]       Copepoda  1.0349690   200   500 350\n7      (200,500] Eumalacostraca  0.1293711   200   500 350\n8      (200,500]         living  5.3042162   200   500 350\n9      (200,500]     not-living 15.5245352   200   500 350\n10     (200,500]       Rhizaria  0.5174845   200   500 350\n11 (500,1.2e+03]       Copepoda  0.9251264   500  1200 850\n12 (500,1.2e+03]         living  5.0111015   500  1200 850\n13 (500,1.2e+03]     not-living 15.5729616   500  1200 850\n14 (500,1.2e+03]       Rhizaria  1.4647835   500  1200 850\n15 (500,1.2e+03] Eumalacostraca  0.0000000   500  1200 850"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-8",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-8",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nZooplankton Concentration:\n\nIt’s not just for abundance!\n\n\nbiovolume\nbiomass\ncreate columns and then calculate concentration!"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-9",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-9",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nDepth-integration:\nA built-in trapezoidal integration tool:"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-10",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-10",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nDepth-integration:\nA built-in trapezoidal integration tool:"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-11",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-11",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nDepth-integration:\nA built-in trapezoidal integration tool:"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-12",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-12",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nDepth-integration:\n\nzoo_intg <- zoo_conc |>\n    integrate_all(need_format = T)"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-13",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-13",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nDepth-integration:\n\nzoo_intg <- zoo_conc |>\n    integrate_all(need_format = T)\n\nzoo_intg\n\n$Copepoda\n1201.25 with absolute error < 0.1\n\n$Eumalacostraca\n80.77177 with absolute error < 0.0096\n\n$living\n6479.592 with absolute error < 0.57\n\n$`not-living`\n30229.78 with absolute error < 3.5\n\n$Rhizaria\n1556.791 with absolute error < 0.13\n\nattr(,\"class\")\n[1] \"etx_integration_list\" \"list\""
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#analysis-tools-14",
+    "href": "quarto_pres/overview_pres.html#analysis-tools-14",
+    "title": "{EcotaxaTools}",
+    "section": "Analysis Tools",
+    "text": "Analysis Tools\nDepth-integration:\n\nzoo_intg <- zoo_conc |>\n    integrate_all(need_format = T)\n\nzoo_intg |> intg_to_tib()\n\n# A tibble: 5 × 2\n  taxa              intg\n  <chr>            <dbl>\n1 Copepoda        1201. \n2 Eumalacostraca    80.8\n3 living          6480. \n4 not-living     30230. \n5 Rhizaria        1557."
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#clean-code-with-pipes",
+    "href": "quarto_pres/overview_pres.html#clean-code-with-pipes",
+    "title": "{EcotaxaTools}",
+    "section": "Clean Code with Pipes:",
+    "text": "Clean Code with Pipes:\nGoal: get integrated rhizaria abundance for two stations\n\nintegrated_rhiz <- ecopart_example |>"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#clean-code-with-pipes-1",
+    "href": "quarto_pres/overview_pres.html#clean-code-with-pipes-1",
+    "title": "{EcotaxaTools}",
+    "section": "Clean Code with Pipes:",
+    "text": "Clean Code with Pipes:\nRename taxa\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#clean-code-with-pipes-2",
+    "href": "quarto_pres/overview_pres.html#clean-code-with-pipes-2",
+    "title": "{EcotaxaTools}",
+    "section": "Clean Code with Pipes:",
+    "text": "Clean Code with Pipes:\nGet concentration\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>\n    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',\n                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),\n                breaks = seq(0,1200,25)) |>"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#clean-code-with-pipes-3",
+    "href": "quarto_pres/overview_pres.html#clean-code-with-pipes-3",
+    "title": "{EcotaxaTools}",
+    "section": "Clean Code with Pipes:",
+    "text": "Clean Code with Pipes:\nAverage at each station\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>\n    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',\n                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),\n                breaks = seq(0,1200,25)) |>\n    average_casts(name_map = list(\n        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),\n        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6')\n    )) |>"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#clean-code-with-pipes-4",
+    "href": "quarto_pres/overview_pres.html#clean-code-with-pipes-4",
+    "title": "{EcotaxaTools}",
+    "section": "Clean Code with Pipes:",
+    "text": "Clean Code with Pipes:\nIntegrate\n\n\n\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>\n    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',\n                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),\n                breaks = seq(0,1200,25)) |>\n    average_casts(name_map = list(\n        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),\n        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6')\n    )) |>\n    lapply(integrate_all, need_format = T, subdivisions=1000L) |>\n    lapply(intg_to_tib)\n\nintegrated_rhiz\n\n$station_A\n# A tibble: 3 × 2\n  taxa          intg\n  <chr>        <dbl>\n1 Collodaria   200. \n2 Foraminifera  20.2\n3 Phaeodaria   222. \n\n$station_B\n# A tibble: 5 × 2\n  taxa          intg\n  <chr>        <dbl>\n1 Acantharea   610. \n2 Collodaria   324. \n3 Foraminifera  48.6\n4 Phaeodaria   843. \n5 Rhizaria     106."
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#see-for-yourself",
+    "href": "quarto_pres/overview_pres.html#see-for-yourself",
+    "title": "{EcotaxaTools}",
+    "section": "See for yourself!",
+    "text": "See for yourself!\n\nEcotaxa Tools Tutorial"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#future",
+    "href": "quarto_pres/overview_pres.html#future",
+    "title": "{EcotaxaTools}",
+    "section": "Future:",
+    "text": "Future:\n\n\nExpand tools & scope\nImprove speed\nCollaborate"
+  },
+  {
+    "objectID": "quarto_pres/overview_pres.html#contact-me",
+    "href": "quarto_pres/overview_pres.html#contact-me",
+    "title": "{EcotaxaTools}",
+    "section": "Contact Me:",
+    "text": "Contact Me:\nAB93@email.sc.edu Twitter: @TheAlexBarth Web: theAlexBarth.github.io\n\n\n\nhttps://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#a-common-language",
+    "href": "quarto_pres/pres_v2.html#a-common-language",
+    "title": "{EcotaxaTools}",
+    "section": "A Common Language",
+    "text": "A Common Language\n\n\n\n\n\n\n\nCollaborative projects\nCommon code for open science\nEase-of-use"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#current-configuration",
+    "href": "quarto_pres/pres_v2.html#current-configuration",
+    "title": "{EcotaxaTools}",
+    "section": "Current Configuration:",
+    "text": "Current Configuration:\nver 1.2.0.9000\n\n\n\n\nAvailable on github\nPrimarily focused on the UVP\nparticularly built out for zooplankton processing"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-basics-with-uvp",
+    "href": "quarto_pres/pres_v2.html#package-basics-with-uvp",
+    "title": "{EcotaxaTools}",
+    "section": "Package Basics with UVP",
+    "text": "Package Basics with UVP\n\n\n\nFocus on raw-data export\n\n\n\nFiles downloaded go in a directory\nA class/object structure to navigate R"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-basics-with-uvp-1",
+    "href": "quarto_pres/pres_v2.html#package-basics-with-uvp-1",
+    "title": "{EcotaxaTools}",
+    "section": "Package Basics with UVP",
+    "text": "Package Basics with UVP\n\n\necopart_obj class structure:"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-basics-with-uvp-2",
+    "href": "quarto_pres/pres_v2.html#package-basics-with-uvp-2",
+    "title": "{EcotaxaTools}",
+    "section": "Package Basics with UVP",
+    "text": "Package Basics with UVP\n\n\necopart_obj class structure:\n\n\nApplying functions across all profiles\nQuickly summarize data\nRequires looping"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-basics-with-uvp-3",
+    "href": "quarto_pres/pres_v2.html#package-basics-with-uvp-3",
+    "title": "{EcotaxaTools}",
+    "section": "Package Basics with UVP",
+    "text": "Package Basics with UVP\n\n\nCode Considerations:\n\n\nReadability\nMinimalize dependancies\nPipe friendly |>\nRely on lapply()"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-1",
+    "href": "quarto_pres/pres_v2.html#package-tools-1",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nProject management:"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-2",
+    "href": "quarto_pres/pres_v2.html#package-tools-2",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nProject management:\n\n\n\nQuickly pull information"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-3",
+    "href": "quarto_pres/pres_v2.html#package-tools-3",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nProject management:\n\n\n\nQuickly pull information\nManage metadata"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-4",
+    "href": "quarto_pres/pres_v2.html#package-tools-4",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nProject management:\n\n\n\nQuickly pull information\nManage metadata\nRelabel categories"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-5",
+    "href": "quarto_pres/pres_v2.html#package-tools-5",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nProject management:\n\n\n\nQuickly pull information\nManage metadata\nRelabel categories\nCalculating Functions\n\nBiovolume"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-6",
+    "href": "quarto_pres/pres_v2.html#package-tools-6",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nSummary & Analysis"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-7",
+    "href": "quarto_pres/pres_v2.html#package-tools-7",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nSummary & Analysis\n\n\n\nRelative Taxa"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-8",
+    "href": "quarto_pres/pres_v2.html#package-tools-8",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nSummary & Analysis\n\n\n\nRelative Taxa\nCalculate Concentrations"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-9",
+    "href": "quarto_pres/pres_v2.html#package-tools-9",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nSummary & Analysis\n\n\n\nRelative Taxa\nCalculate Concentrations\nAveraging Profiles"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-10",
+    "href": "quarto_pres/pres_v2.html#package-tools-10",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nSummary & Analysis\n\n\n\nRelative Taxa\nCalculate Concentrations\nAveraging Profiles\nDepth-integration"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-11",
+    "href": "quarto_pres/pres_v2.html#package-tools-11",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nSummary & Analysis\n\n\n\nRelative Taxa\nCalculate Concentrations\nAveraging Profiles\nDepth-integration"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#package-tools-12",
+    "href": "quarto_pres/pres_v2.html#package-tools-12",
+    "title": "{EcotaxaTools}",
+    "section": "Package tools",
+    "text": "Package tools\nSummary & Analysis\n\n\n\nRelative Taxa\nCalculate Concentrations\nAveraging Profiles\nDepth-integration"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-1",
+    "href": "quarto_pres/pres_v2.html#case-1",
+    "title": "{EcotaxaTools}",
+    "section": "Case 1:",
+    "text": "Case 1:\n\nGoal: Get relative abundance of key living taxa"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-1-1",
+    "href": "quarto_pres/pres_v2.html#case-1-1",
+    "title": "{EcotaxaTools}",
+    "section": "Case 1:",
+    "text": "Case 1:\nStart with an ecopart_obj\nrel_data <- ecopart_example"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-1-2",
+    "href": "quarto_pres/pres_v2.html#case-1-2",
+    "title": "{EcotaxaTools}",
+    "section": "Case 1:",
+    "text": "Case 1:\n\nDrop non-living\n\nrel_data <- ecopart_example |>\n    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-1-3",
+    "href": "quarto_pres/pres_v2.html#case-1-3",
+    "title": "{EcotaxaTools}",
+    "section": "Case 1:",
+    "text": "Case 1:\n\nRelabel remaining taxa\n\nrel_data <- ecopart_example |>\n    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>\n    add_zoo(func = names_to, \n            new_names = c('Copepoda', 'Eumalacostraca','Chaetognatha', 'Rhizaria',\n                          'Crustacea','Trichodesmium', 'living'),\n            suppress_print = T) |>"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-1-4",
+    "href": "quarto_pres/pres_v2.html#case-1-4",
+    "title": "{EcotaxaTools}",
+    "section": "Case 1:",
+    "text": "Case 1:\n\nMerge all casts\n\nrel_data <- ecopart_example |>\n    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>\n    add_zoo(func = names_to, \n            new_names = c('Copepoda', 'Eumalacostraca','Chaetognatha', 'Rhizaria',\n                          'Crustacea','Trichodesmium', 'living'),\n            suppress_print = T) |>\n    merge_casts(name_map = list(all_casts = ecopart_example$meta$profileid)) |>"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-1-5",
+    "href": "quarto_pres/pres_v2.html#case-1-5",
+    "title": "{EcotaxaTools}",
+    "section": "Case 1:",
+    "text": "Case 1:\n\nCalculate relative data\n\nrel_data <- ecopart_example |>\n    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>\n    add_zoo(func = names_to,\n            new_names = c('Copepoda', 'Eumalacostraca','Chaetognatha', 'Rhizaria',\n                          'Crustacea','Trichodesmium', 'living'),\n            suppress_print = T) |>\n    merge_casts(name_map = list(all_casts = ecopart_example$meta$profileid)) |>\n    rel_taxa()"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-1-6",
+    "href": "quarto_pres/pres_v2.html#case-1-6",
+    "title": "{EcotaxaTools}",
+    "section": "Case 1:",
+    "text": "Case 1:\n\nCodeDataPlot\n\n\n\nrel_data <- ecopart_example |>\n    mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T) |>\n    add_zoo(func = names_to, col_name = 'name', \n            new_names = c('Copepoda', 'Eumalacostraca','Chaetognatha', 'Rhizaria',\n                          'Crustacea','Trichodesmium', 'living'),\n            suppress_print = T) |>\n    merge_casts(name_map = list(all_casts = ecopart_example$meta$profileid)) |>\n    rel_taxa()\n\n\n\n\n\n\n\n\ntaxa\nrel_abundance\n\n\n\n\nRhizaria\n0.3544304\n\n\nCopepoda\n0.2516754\n\n\nTrichodesmium\n0.1999255\n\n\nliving\n0.1124348\n\n\nChaetognatha\n0.0282949\n\n\nEumalacostraca\n0.0279226\n\n\nCrustacea\n0.0253165"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-2",
+    "href": "quarto_pres/pres_v2.html#case-2",
+    "title": "{EcotaxaTools}",
+    "section": "Case 2:",
+    "text": "Case 2:\n\nGoal: Calculate depth-integrated biovolume of rhizaria taxa"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-2-1",
+    "href": "quarto_pres/pres_v2.html#case-2-1",
+    "title": "{EcotaxaTools}",
+    "section": "Case 2:",
+    "text": "Case 2:\n\nKeep only rhizaria\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-2-2",
+    "href": "quarto_pres/pres_v2.html#case-2-2",
+    "title": "{EcotaxaTools}",
+    "section": "Case 2:",
+    "text": "Case 2:\n\nRelabel to new groups\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', \n            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-2-3",
+    "href": "quarto_pres/pres_v2.html#case-2-3",
+    "title": "{EcotaxaTools}",
+    "section": "Case 2:",
+    "text": "Case 2:\n\nCalculate zooplankton concentration\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', \n            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>\n    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',\n                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),\n                breaks = seq(0,1200,25)) |>"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-2-4",
+    "href": "quarto_pres/pres_v2.html#case-2-4",
+    "title": "{EcotaxaTools}",
+    "section": "Case 2:",
+    "text": "Case 2:\n\nAverage by station\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', \n            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>\n    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',\n                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),\n                breaks = seq(0,1200,25)) |>\n    average_casts(name_map = list(\n        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),\n        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'))) |>"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-2-5",
+    "href": "quarto_pres/pres_v2.html#case-2-5",
+    "title": "{EcotaxaTools}",
+    "section": "Case 2:",
+    "text": "Case 2:\n\nIntegrate casts\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', \n            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>\n    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',\n                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),\n                breaks = seq(0,1200,25)) |>\n    average_casts(name_map = list(\n        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),\n        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'))) |>\n    lapply(integrate_all, need_format = T, subdivisions=1000L) |>\n    lapply(intg_to_tib)"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#case-2-6",
+    "href": "quarto_pres/pres_v2.html#case-2-6",
+    "title": "{EcotaxaTools}",
+    "section": "Case 2:",
+    "text": "Case 2:\n\nCodeDataPlot\n\n\n\nintegrated_rhiz <- ecopart_example |>\n    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>\n    add_zoo(names_to, col_name = 'name', \n            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),\n            suppress_print = T) |>\n    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',\n                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),\n                breaks = seq(0,1200,25)) |>\n    average_casts(name_map = list(\n        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),\n        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'))) |>\n    lapply(integrate_all, need_format = T, subdivisions=1000L) |>\n    lapply(intg_to_tib)\n\n\n\n\n\n\n\n\ntaxa\nintg\nstation\n\n\n\n\nCollodaria\n199.95961\nstation_A\n\n\nForaminifera\n20.20202\nstation_A\n\n\nPhaeodaria\n222.12039\nstation_A\n\n\nAcantharea\n0.00000\nstation_A\n\n\nRhizaria\n0.00000\nstation_A\n\n\nAcantharea\n610.20185\nstation_B\n\n\nCollodaria\n324.25997\nstation_B\n\n\nForaminifera\n48.59084\nstation_B\n\n\nPhaeodaria\n842.84036\nstation_B\n\n\nRhizaria\n106.11161\nstation_B"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#see-for-yourself",
+    "href": "quarto_pres/pres_v2.html#see-for-yourself",
+    "title": "{EcotaxaTools}",
+    "section": "See for yourself!",
+    "text": "See for yourself!\n\nEcotaxa Tools Tutorial"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#future",
+    "href": "quarto_pres/pres_v2.html#future",
+    "title": "{EcotaxaTools}",
+    "section": "Future:",
+    "text": "Future:\n\n\n\n\nExpand tools & scope"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#future-1",
+    "href": "quarto_pres/pres_v2.html#future-1",
+    "title": "{EcotaxaTools}",
+    "section": "Future:",
+    "text": "Future:\n\n\n\n\nExpand tools & scope\nSpeed up functions"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#future-2",
+    "href": "quarto_pres/pres_v2.html#future-2",
+    "title": "{EcotaxaTools}",
+    "section": "Future:",
+    "text": "Future:\n\n\n\n\nExpand tools & scope\nSpeed up functions\nCollaborate"
+  },
+  {
+    "objectID": "quarto_pres/pres_v2.html#contact-me",
+    "href": "quarto_pres/pres_v2.html#contact-me",
+    "title": "{EcotaxaTools}",
+    "section": "Contact Me:",
+    "text": "Contact Me:\n\nAB93@email.sc.edu\nTwitter: @TheAlexBarth\nWeb: theAlexBarth.github.io\n\n\n\n\nhttps://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/"
   },
   {
     "objectID": "query_all-taxa.html",

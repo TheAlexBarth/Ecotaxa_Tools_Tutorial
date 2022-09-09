@@ -20,129 +20,899 @@ format:
 ::: columns
 
 ::: {.column width="40%"}
-![](../media/pres_img/standards.png)
+![](../media/pres_img/language_pic.jpeg)
 :::
 
 ::: {.column width="60%"}
 ::: incremental
 -   Collaborative projects
--   Open science
--   Common test
+-   Ease-of-use
+-   Common code for open science
 :::
 :::
 
 :::
 
-## Common Functionality
+<!--- START COMMON TOOLKIT --->
+
+## Common Toolkit {auto-animate="true"}
+
+Easily replicate tasks in a few lines of code:
+
+::: columns
+
+::: {.column width='50%'} 
+- Relabel taxa/categories
+:::
+
+::: {.column width="50%"}
+![](../media/pres_img/names_to.png)
+:::
+
+:::
+
+## Common Toolkit {auto-animate="true"}
+
+Easily replicate tasks in a few lines of code:
+
+::: columns
+
+::: {.column width='50%'} 
+- Relabel taxa/categories
+- Manage metadata
+:::
+
+::: {.column width="50%"}
+![](../media/pres_img/metadata.png)
+:::
+
+:::
+
+## Common Toolkit {auto-animate="true"}
+
+Easily replicate tasks in a few lines of code:
+
+::: columns
+
+::: {.column width='50%'} 
+- Relabel taxa/categories
+- Manage metadata
+- Calculate concentrations
+- Integrated abundance
+:::
+
+::: {.column width="50%"}
+![](../media/pres_img/abundances.png)
+:::
+
+:::
+
+## Common Toolkit {auto-animate="true"}
+
+Easily replicate tasks in a few lines of code:
+
+::: columns
+
+::: {.column width='50%'} 
+- Relabel taxa/categories
+- Manage metadata
+- Calculate concentrations
+- Integrated abundance
+- Relative abundance
+:::
+
+::: {.column width="50%"}
+![](../media/pres_img/relative-abundance.png)
+:::
+
+:::
+
+
+## Common Toolkit {auto-animate="true"}
+
+Easily replicate tasks in a few lines of code:
+
+::: columns
+
+::: {.column width='50%'} 
+- Relabel taxa/categories
+- Manage metadata
+- Calculate concentrations
+- Integrated abundance
+- Relative abundance
+- biovolume
+:::
+
+::: {.column width="50%"}
+![](../media/pres_img/biovol.png)
+:::
+
+:::
+
+<!--- END COMMON TOOLKIT --->
+
+## Considerations:
 
 <br/>
 
 ::: columns
 
-::: {.column width='50%'} 
-::: incremental
-- Relabel taxa/categories
-- Manage metadata & sample information
-- Calculate concentrations
-- Integrated abundance
-- Relative abundance
-- test
+::: {.column width="40%"} 
+::: incremental 
+- Code readability 
+- Piping `|>` 
+- Ease of use 
+- Compatabile across Ecotaxa-friendly tools
 :::
 :::
 
-::: {.column width="50%"}
-Image here
+::: {.column width="60%"}
+::: {.fragment}
+```{r}
+#| echo: true
+#| eval: false
+
+data |> 
+    func() |>
+    next_func() |>
+    next_func()
+
+```
 :::
-
 :::
-
-## Considerations:
-
-::: columns
-::: {.column width = "60%"} ::: incremental - Code readability - Piping `|>` - Ease of use - Compatabile across Ecotaxa-friendly tools
-:::
-
-:::
-
-::: {.column width="40%"}
-Image over here.
-:::
-
 :::
 
 ## Current Configuration:
 
 ver 1.2.0.9000
 
+::: columns
+
+::: {.column width="30%"}
 ::: incremental
 -   Available on github
 -   Primarily focused on the UVP
 -   particularly built out for zooplankton processing
--   in "Development"
+:::
 :::
 
+:::{.column width='70%'}
+![](../media/pres_img/git-screenshot.png)
+:::
+
+:::
+
+<!--- START PACKAGE BASICS SECTION --->
+
 ## Package Basics with UVP
+
+::: columns
+
+::: {.column width='40%'}
+-   Focus on raw-data export
 
 ::: incremental
--   Focus on raw-data export
--   A class/object structure
--   Data are contained in `ecopart_obj`
--   Three main elements: `meta`, `zoo_list`, 'par_list'
+-   Files downloaded go in a directory
+-   A class/object structure to navigate R
 :::
 
-## Package Basics with UVP
+:::
+
+::: {.column width='60%'}
+
+::: {.r-stack}
+![](../media/pres_img/ecopart_export.png){.fragment fragment-index=1 .absolute}
+![](../media/pres_img/raw_directory.png){.fragment fragment-index=3 .absolute}
+:::
+
+:::
+:::
+
+<!--- Start data import example --->
+
+## Package Basics with UVP {auto-animate="true"}
 
 #### Loading in data:
 
-``` r
+```{r}
+#| echo: true
+#| eval: false
+
 directory_path <- 'C:/my_data_folder' #your directory goes here
-my_ecopart_obj <- ecopart_import(directory_path)
+ecopart_example <- ecopart_import(directory_path)
 ```
 
-## Package Basics with UVP
+## Package Basics with UVP {auto-animate="true"}
 
-Built-in example dataset
+#### Loading in data:
+
+```{r}
+#| echo: true
+#| eval: false
+
+directory_path <- 'C:/my_data_folder' #your directory goes here
+ecopart_example <- ecopart_import(directory_path)
+```
+
+<br/><br/><br/>
+
+#### Built-in example dataset
 
 ```{r}
 #| echo: true
 library(EcotaxaTools)
-str(ecopart_example)
+names(ecopart_example)
 ```
+
+<!--- END import example --->
 
 ## Package Basics with UVP
 
 ::: columns
-::: {.column width="65%"}
-`ecopart_obj` - `zoo_list` accessed as `$zoo_files` - `par_list` accessed as `$par_files` - `meta` accessed as `meta`
+
+::: {.column width="55%"}
+`ecopart_obj` class structure:
+
+- `zoo_list` accessed as `$zoo_files` 
+- `par_list` accessed as `$par_files` 
+- `meta` accessed as `meta`
 :::
 
-::: {.column width="35%"}
-```{mermaid}
-flowchart RL
-    subgraph ecopart_obj
-        direction RL
-        meta
-        subgraph zoo_list
-            zoo_df
-        end
-        subgraph par_list
-            par_df
-        end
-    end
+::: {.column width="45%" .absolute top="25%" left='85%'}
+![](../media/pres_img/ecopart_obj_str.png)
+:::
+
+:::
+
+
+<!--- END package basics ---->
+
+<!--- Start querying section --->
+# Querying data 
+
+## Querying data: {auto-animate="true"}
+
+### Quickly pull information about your dataset:
+
+## Querying data: {auto-animate="true"}
+
+### Quickly pull information about your dataset:
+
+`all_taxa()`
+
+```{r}
+#| echo: true
+#| eval: false
+ 
+ecopart_example |>
+    all_taxa() |>
+    unique()
 ```
-:::
+
+## Querying data: {auto-animate="true"}
+
+### Quickly pull information about your dataset:
+
+`all_taxa()`
+
+```{r}
+#| echo: true
+#| eval: true
+ 
+ecopart_example |>
+    all_taxa() |>
+    unique()
+```
+
+## Querying data: {auto-animate="true"}
+
+### Quickly pull information about your dataset:
+
+`get_all()`
+
+## Querying data: {auto-animate="true"}
+
+### Quickly pull information about your dataset:
+
+`get_all()` - depth information
+
+```{r}
+#| echo: true
+#| eval: true
+ 
+ecopart_example |>
+    get_all('depth_including_offset') |>
+    range()
+```
+
+
+## Querying data: {auto-animate="true"}
+### Quickly pull information about your dataset:
+
+`get_all()` - size ranges
+
+```{r}
+#| echo: true
+#| eval: true
+ 
+ecopart_example |>
+    get_all('esd') |>
+    summary() * unique(ecopart_example$meta$acq_pixel)
+```
+
+<!--- END querying section --->
+
+<!--- START Data Wranging --->
+
+# Data Wrangling: Project management {auto-animate="true"}
+:::{.absolute top="0" left="0"}
 :::
 
-## Package Basics
+
+## Data Wrangling {auto-animate="true"}
+
+#### Project management
+
+Splitting a project:
+```{r}
+#| eval: false
+#| echo: true
+
+split_proj <- ecopart_example |>
+    split_ecopart_obj(split_by = ) # corresponding metadata column
+```
+
+## Data Wrangling {auto-animate="true"}
+
+#### Project management
+
+Splitting a project:
+```{r}
+#| echo: true
+#| eval: true
+
+split_proj <- ecopart_example |>
+    split_ecopart_obj(split_by = 'stationid') # corresponding metadata column
+
+names(split_proj)
+```
+
+## Data Wrangling {auto-animate="true"}
+
+#### Project management
+
+Merging Casts
+
+## Data Wrangling {auto-animate="true"}
+
+#### Project management
+
+Merging Casts
+```{r}
+#| echo: true
+#| eval: false
+
+# define a map to name casts:
+#merging casts based on station:
+name_map = list(
+    'gf' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid == 'gf')],
+    'other' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid != 'gf')]
+)
+
+```
+
+## Data Wrangling {auto-animate="true"}
+
+#### Project management
+
+Merging Casts
+```{r}
+#| echo: true
+
+# define a map to name casts:
+#merging casts based on station:
+name_map = list(
+    'gf' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid == 'gf')],
+    'other' = ecopart_example$meta$profileid[which(ecopart_example$meta$stationid != 'gf')]
+)
+
+merged_obj <- ecopart_example |>
+    merge_casts(name_map = name_map)
+# now there's only two aggregate casts:
+names(merged_obj$par_files)
+```
+
+# Data Wrangling: Hands-on tasks
+
+
+## Data Wrangling {auto-animate="true"}
+#### Hands-on tasks
 
 ::: columns
-::: {.column width="65%"}
-Tools: :::{.incremental} - quick queries - data cleaning - analysis tools
-:::
+
+::: {.column width='50%'}
+
+::: incremental
+- Functions must be iterated over all profiles
+- `add_zoo()` adds a new column
+- `mod_zoo()` trims rows
 :::
 
-::: {.column width="35%"}
-image of tools
+:::
+
+::: {.column width='50%' .r-stretch}
+![](../media/pres_img/ecopart_obj_str.png)
 :::
 
 :::
+
+<!--- add_zoo() example --->
+## Data Wrangling {auto-animate="true"}
+
+#### `add_zoo()`: add a column
+
+```{r}
+#| echo: true
+#| eval: false
+ecopart_example <- ecopart_example |> 
+    add_zoo(func = biovolume, ## Defined function
+            col_name = 'biovol', ## New column name
+            #additional arguments passed to the function:
+```
+
+## Data Wrangling {auto-animate="true"}
+
+#### `add_zoo()`: add a column
+
+```{r}
+#| echo: true
+#| eval: false
+ecopart_example <- ecopart_example |> 
+    add_zoo(func = biovolume, ## Defined function
+            col_name = 'biovol', ## New column name
+            #additional arguments passed to the function:
+            shape = 'ellipsoid',
+            pixel_mm = unique(ecopart_example$meta$acq_pixel))
+```
+
+## Data Wrangling {auto-animate="true"}
+
+#### `add_zoo()`: add a column
+
+```{r}
+#| echo: true
+#| eval: true
+ecopart_example <- ecopart_example |> 
+    add_zoo(func = biovolume, ## Defined function
+            col_name = 'biovol', ## New column name
+            #additional arguments passed to the function:
+            shape = 'ellipsoid',
+            pixel_mm = unique(ecopart_example$meta$acq_pixel))
+
+ecopart_example |> 
+    get_all('biovol') |> 
+    range()
+```
+<!--- add_zoo() example --->
+
+<!--- mod_zoo() example --->
+## Data Wrangling {auto-animate="true"}
+
+#### `mod_zoo()`: modify rows
+
+```{r}
+#| eval: false
+#| echo: true
+
+# defining a function for row selection:
+
+# apply that function to the object
+meso_zoops <- ecopart_example |>
+    mod_zoo(
+        #specify funciton here
+    )
+```
+
+
+## Data Wrangling {auto-animate="true"}
+
+#### `mod_zoo()`: modify rows
+
+```{r}
+#| eval: true
+#| echo: true
+
+# defining a function for row selection:
+get_mesopelagic_obsv <- function(df) {
+    row_index <- which(df$depth_including_offset > 200 & df$depth_including_offset < 1200)
+    if(length(row_index) == 0) {
+        return(NULL)
+    }
+    return(df[row_index, ])
+}
+
+# apply that function to the object
+meso_zoops <- ecopart_example |>
+    mod_zoo(
+        func = get_mesopelagic_obsv
+    )
+```
+<!--- mod_zoo() example --->
+
+# Data wrangling: re-naming {auto-animate="true"}
+
+## Data wrangling: re-naming {auto-animate="true"}
+
+`names_to()` - moving up the taxonomic hierarcy:
+
+```{r}
+#| eval: false
+#| echo: true
+
+new_names = c('Copepoda','Eumalacostraca','Rhizaria','living','not-living')
+
+simple_names <- ecopart_example |>
+    add_zoo(
+         #use add_zoo to wrap to all profiles 
+    )
+
+```
+
+## Data wrangling: re-naming {auto-animate="true"}
+
+`names_to()` - moving up the taxonomic hierarcy:
+
+```{r}
+#| eval: true
+#| echo: true
+
+new_names = c('Copepoda','Eumalacostraca','Rhizaria','living','not-living')
+
+simple_names <- ecopart_example |>
+    add_zoo(
+        func = names_to,
+        col_name = 'name',
+        new_names = new_names,
+        suppress_print = T
+    ) 
+
+```
+
+## Data wrangling: re-naming {auto-animate="true"}
+
+`names_to()` - moving up the taxonomic hierarcy:
+
+```{r}
+#| eval: true
+#| echo: true
+
+new_names = c('Copepoda','Eumalacostraca','Rhizaria','living','not-living')
+
+simple_names <- ecopart_example |>
+    add_zoo(
+        func = names_to,
+        col_name = 'name',
+        new_names = new_names,
+        suppress_print = T
+    ) 
+
+simple_names |>
+    all_taxa() |>
+    unique()
+```
+
+## Data wrangling: re-naming {auto-animate="true"}
+
+`names_drop()` - drop categories
+
+```{r}
+#| echo: true
+# drop all detritus taxa:
+
+```
+
+## Data wrangling: re-naming {auto-animate="true"}
+
+`names_drop()` - drop categories
+
+```{r}
+#| echo: true
+# drop all detritus taxa:
+only_living <- ecopart_example |>
+        mod_zoo(func = names_drop, drop_names = 'not-living', drop_children = T)
+```
+
+## Data wrangling: re-naming {auto-animate="true"}
+
+`names_keep()` - keep select categories
+
+```{r}
+#| echo: true
+rhiz_taxa <- ecopart_example |>
+    mod_zoo(func = names_keep, keep_names = 'Rhizaria', keep_children = T)
+```
+
+## Data wrangling: re-naming {auto-animate="true"}
+
+`names_keep()` - keep select categories
+
+```{r}
+#| echo: true
+rhiz_taxa <- ecopart_example |>
+    mod_zoo(func = names_keep, keep_names = 'Rhizaria', keep_children = T)
+
+rhiz_taxa |>
+    all_taxa() |>
+    unique()
+```
+
+
+# Analysis Tools {auto-animate="true"}
+
+
+
+## Analysis Tools {auto-animate="true"}
+#### Particle Concentration
+
+```{r}
+#| echo: false
+ecopart_example$par_files <- ecopart_example$par_files[-16]
+```
+```{r}
+#| echo: false
+par_conc <- ecopart_example |> 
+    uvp_par_conc(bin_limits = c(.1,.25,1,2))
+```
+
+
+## Analysis Tools {auto-animate="true"}
+#### Particle Concentration
+
+```{r}
+#| echo: false
+ecopart_example$par_files <- ecopart_example$par_files[-16]
+```
+```{r}
+#| echo: true
+par_conc <- ecopart_example |> 
+    uvp_par_conc(bin_limits = c(.1,.25,1,2))
+```
+
+```{r}
+#| echo: false
+par_conc |> list_to_tib('cast')
+```
+
+## Analysis Tools {auto-animate="true"}
+#### Particle Concentraitons:
+Quick graphs:
+
+```{r}
+ecopart_example$par_files$bats361_ctd1 |>
+    particle_plot(img_vol = 1.1, pixel_mm = 0.092,
+                  bin_limits = c(0.2,0.35,0.5))
+```
+
+## Analysis Tools {auto-animate="true"}
+#### Zooplankton Concentration:
+
+```{r}
+#| echo: true
+#| eval: false
+zoo_conc <- simple_names  |>
+    uvp_zoo_conc(
+
+    )
+```
+
+## Analysis Tools {auto-animate="true"}
+#### Zooplankton Concentration:
+
+```{r}
+#| echo: true
+zoo_conc <- simple_names  |>
+    uvp_zoo_conc(
+        cast_name = 'bats361_ctd9', #optional
+        breaks = c(0,200,500,1200)
+    )
+```
+
+## Analysis Tools {auto-animate="true" .scrollable}
+#### Zooplankton Concentration:
+
+```{r}
+#| echo: true
+zoo_conc <- simple_names  |>
+    uvp_zoo_conc(
+        cast_name = 'bats361_ctd9', #optional
+        breaks = c(0,200,500,1200)
+    )
+
+zoo_conc
+```
+
+## Analysis Tools {auto-animate="true" .scrollable}
+#### Zooplankton Concentration:
+
+```{r}
+#| echo: true
+zoo_conc <- simple_names  |>
+    uvp_zoo_conc(
+        cast_name = 'bats361_ctd9', #optional
+        breaks = c(0,200,500,1200)
+    )
+
+zoo_conc |> bin_format()
+```
+
+## Analysis Tools {auto-animate="true"}
+#### Zooplankton Concentration:
+
+::: {right='50%'}
+It's not just for abundance!
+
+::: incremental
+- biovolume
+- biomass
+- create columns and then calculate concentration!
+:::
+
+:::
+
+## Analysis Tools {auto-animate="true"}
+#### Depth-integration:
+A built-in trapezoidal integration tool:
+
+::: {.fragment .absolute right='50%'}
+![](../media/pres_img/ex_profile_plot.png)
+:::
+
+
+## Analysis Tools {auto-animate="true"}
+#### Depth-integration:
+A built-in trapezoidal integration tool:
+
+::: {.absolute right='50%'}
+![](../media/pres_img/ex_profile_plot_outline-intg.png)
+:::
+
+
+## Analysis Tools {auto-animate="true"}
+#### Depth-integration:
+A built-in trapezoidal integration tool:
+
+::: {.absolute right='50%'}
+![](../media/pres_img/ex_profile_plot-intg.png)
+:::
+
+## Analysis Tools {auto-animate="true" .scrollable}
+#### Depth-integration:
+
+```{r}
+#| echo: true
+#| eval: false
+zoo_intg <- zoo_conc |>
+    integrate_all(need_format = T)
+```
+
+
+## Analysis Tools {auto-animate="true" .scrollable}
+#### Depth-integration:
+
+```{r}
+#| echo: true
+#| eval: true
+zoo_intg <- zoo_conc |>
+    integrate_all(need_format = T)
+
+zoo_intg
+```
+
+## Analysis Tools {auto-animate="true" .scrollable}
+#### Depth-integration:
+
+```{r}
+#| echo: true
+#| eval: true
+zoo_intg <- zoo_conc |>
+    integrate_all(need_format = T)
+
+zoo_intg |> intg_to_tib()
+```
+
+# The Power of Pipes! {auto-animate="true"}
+
+## Clean Code with Pipes: {auto-animate="true"}
+Goal: get integrated rhizaria abundance for two stations
+```{r}
+#| echo: true
+#| eval: false
+integrated_rhiz <- ecopart_example |>
+```
+
+## Clean Code with Pipes: {auto-animate="true"}
+Rename taxa
+```{r}
+#| echo: true
+#| eval: false
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+```
+
+## Clean Code with Pipes: {auto-animate="true"}
+Get concentration
+```{r}
+#| echo: true
+#| eval: false
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
+                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                breaks = seq(0,1200,25)) |>
+```
+
+## Clean Code with Pipes: {auto-animate="true"}
+Average at each station
+```{r}
+#| echo: true
+#| eval: false
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
+                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                breaks = seq(0,1200,25)) |>
+    average_casts(name_map = list(
+        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
+        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6')
+    )) |>
+```
+
+## Clean Code with Pipes: {auto-animate="true" .scrollable}
+Integrate
+```{r}
+rm(list = ls())
+library(EcotaxaTools)
+```
+```{r}
+#| echo: true
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+    uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
+                               'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                breaks = seq(0,1200,25)) |>
+    average_casts(name_map = list(
+        station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
+        station_B = c('bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6')
+    )) |>
+    lapply(integrate_all, need_format = T, subdivisions=1000L) |>
+    lapply(intg_to_tib)
+
+integrated_rhiz
+```
+
+## See for yourself!
+::: {style="text-align: center; margin-top: 1em"}
+[Ecotaxa Tools Tutorial](https://thealexbarth.github.io/Ecotaxa_Tools_Tutorial/uvp_integrate.html){preview-link="true" style="text-align: center"}
+:::
+
+# Future Directions:
+
+## Future:
+::: incremental
+- Expand tools & scope
+- Improve speed
+- Collaborate
+:::
+
+## Contact Me:
+AB93@email.sc.edu
+Twitter: @TheAlexBarth
+Web: theAlexBarth.github.io
