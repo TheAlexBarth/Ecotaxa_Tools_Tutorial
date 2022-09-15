@@ -478,28 +478,45 @@ integrated_rhiz <- ecopart_example |>
             new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
             suppress_print = T) |>
 ```
+
 ## Case 2: {auto-animate="true"}
-3. Calculate zooplankton concentration
-```{.r code-line-numbers="6-8"}
+3. Calculate biovolume
+```{.r code-line-numbers="6"}
 integrated_rhiz <- ecopart_example |>
     mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
     add_zoo(names_to, col_name = 'name', 
             new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
             suppress_print = T) |>
+    add_zoo(biovolume, col_name = 'biovol', shape = "sphere", pixel_mm = 0.92) |>
+```
+
+
+## Case 2: {auto-animate="true"}
+4. Calculate biovolume concentration
+```{.r code-line-numbers="7-10"}
+integrated_rhiz <- ecopart_example |>
+    mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
+    add_zoo(names_to, col_name = 'name', 
+            new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
+            suppress_print = T) |>
+    add_zoo(biovolume, col_name = 'biovol', shape = "sphere", pixel_mm = 0.92) |>
     uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
                                'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                func_col = 'biovol', func = sum,
                 breaks = seq(0,1200,25)) |>
 ```
 ## Case 2: {auto-animate="true"}
-4. Average by station
-```{.r code-line-numbers="9-11"}
+5. Average by station
+```{.r code-line-numbers="11-13"}
 integrated_rhiz <- ecopart_example |>
     mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
     add_zoo(names_to, col_name = 'name', 
             new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
             suppress_print = T) |>
+    add_zoo(biovolume, col_name = 'biovol', shape = "sphere", pixel_mm = 0.92) |>
     uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
                                'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                func_col = 'biovol', func = sum,
                 breaks = seq(0,1200,25)) |>
     average_casts(name_map = list(
         station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
@@ -509,15 +526,17 @@ integrated_rhiz <- ecopart_example |>
 
 
 ## Case 2: {auto-animate="true"}
-5. Integrate casts
-```{.r code-line-numbers="12"}
+6. Integrate casts
+```{.r code-line-numbers="14"}
 integrated_rhiz <- ecopart_example |>
     mod_zoo(names_keep, keep_names = 'Rhizaria', keep_children = T) |>
     add_zoo(names_to, col_name = 'name', 
             new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
             suppress_print = T) |>
+    add_zoo(biovolume, col_name = 'biovol', shape = "sphere", pixel_mm = 0.92) |>
     uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
                                'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                func_col = 'biovol', func = sum,
                 breaks = seq(0,1200,25)) |>
     average_casts(name_map = list(
         station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
@@ -541,8 +560,10 @@ integrated_rhiz <- ecopart_example |>
     add_zoo(names_to, col_name = 'name', 
             new_names = c('Phaeodaria','Foraminifera','Acantharea','Rhizaria','Collodaria'),
             suppress_print = T) |>
+    add_zoo(biovolume, col_name = 'biovol', shape = "sphere", pixel_mm = 0.92) |>
     uvp_zoo_conc(cast_name = c('bats361_ctd1', 'bats361_ctd3', 'bats361_ctd5',
                                'bats361_ctd2', 'bats361_ctd4', 'bats361_ctd6'),
+                func_col = 'biovol', func = sum,
                 breaks = seq(0,1200,25)) |>
     average_casts(name_map = list(
         station_A = c('bats361_ctd1, bats361_ctd3', 'bats361_ctd5'),
