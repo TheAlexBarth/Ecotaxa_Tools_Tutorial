@@ -102,14 +102,14 @@
     "href": "info_updates-page.html",
     "title": "Updates",
     "section": "",
-    "text": "Created the quarto page to introduce the package and a short tutorial"
+    "text": "Ver 1.2.2.9000\nAdded init fuctions to make things smoother in 1.2.1\nAdded ecopart object trimming features… examples to come"
   },
   {
     "objectID": "info_updates-page.html#section-1",
     "href": "info_updates-page.html#section-1",
     "title": "Updates",
-    "section": "4/20/22:",
-    "text": "4/20/22:\n\nAdded several functions. Dedicated formatting to adders, modifiers, managers, and plotters"
+    "section": "8/10/22:",
+    "text": "8/10/22:\n\nImproving documentation. Adding examples and example datasets"
   },
   {
     "objectID": "info_updates-page.html#section-2",
@@ -122,8 +122,8 @@
     "objectID": "info_updates-page.html#section-3",
     "href": "info_updates-page.html#section-3",
     "title": "Updates",
-    "section": "8/10/22:",
-    "text": "8/10/22:\n\nImproving documentation. Adding examples and example datasets"
+    "section": "4/20/22:",
+    "text": "4/20/22:\n\nAdded several functions. Dedicated formatting to adders, modifiers, managers, and plotters"
   },
   {
     "objectID": "info_uvp_general-layout.html",
@@ -341,5 +341,12 @@
     "title": "{EcotaxaTools}",
     "section": "Common Functionality",
     "text": "Common Functionality\n\n\n\n\n\nRelabel taxa/categories\nManage metadata & sample information\nCalculate concentrations\nIntegrated abundance\nRelative abundance\ntest\n\n\n\nImage here"
+  },
+  {
+    "objectID": "info_updates-page.html#section-4",
+    "href": "info_updates-page.html#section-4",
+    "title": "Updates",
+    "section": "4/6/22:",
+    "text": "4/6/22:\n\nCreated the quarto page to introduce the package and a short tutorial"
   }
 ]

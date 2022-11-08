@@ -2,12 +2,13 @@
 title: "Updates"
 ---
 
+## 11/8/22:
+- Ver 1.2.2.9000
+- Added init fuctions to make things smoother in 1.2.1
+- Added ecopart object trimming features... examples to come
 
-## 4/6/22: 
-- Created the quarto page to introduce the package and a short tutorial \n
-
-## 4/20/22: 
-- Added several functions. Dedicated formatting to adders, modifiers, managers, and plotters\n
+## 8/10/22:
+- Improving documentation. Adding examples and example datasets\n
 
 ## 6/28/22:
 - Package release to 1.0.0.9000 \n
@@ -15,5 +16,10 @@ title: "Updates"
 - From a user perspective, this won't be noticed largely. However, on the backend of the functions it makes things run smoothly. Now, the functions to interact with are primarily "pointers". These direct datasets to class-specific functions. This allows for functions to function differently based input. This allows for a variety of workflows and will make scaling to include new features easier. For the time being, this might create new challenges for functions as things get worked out.\n
 - Added a uvp_par_conc and particle_plot features.\n
 
-## 8/10/22:
-- Improving documentation. Adding examples and example datasets\n
+## 4/20/22: 
+- Added several functions. Dedicated formatting to adders, modifiers, managers, and plotters\n
+
+
+## 4/6/22: 
+- Created the quarto page to introduce the package and a short tutorial \n
+
