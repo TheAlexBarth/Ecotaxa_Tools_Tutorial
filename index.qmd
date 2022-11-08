@@ -11,3 +11,11 @@ You can read the updates tab for new information [here](./info_updates-page.html
 
 The current build (ver 1.2.0.9000) is primarily for UVP and ecopart data processing. However, there is some functionality which will be useful with the zoo_scan or other standard ecotaxa .tsv files.
 
+
+<div>
+```{=html}
+<iframe src='./quarto_pres/pres_v2.html' class = 'slide-deck'>
+```
+</div>
+
+
